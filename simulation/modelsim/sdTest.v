@@ -1,0 +1,95 @@
+`include "timescale.v"
+
+module sdTest();
+  
+tri [1:0] iBus; 
+reg clk;
+reg usb_clk;
+
+tri [3:0] sdBus;
+tri sdCmd;
+tri sdClk;
+
+wire clkADC1;
+wire clkADC2;
+reg [7:0] inputADC1;
+reg [7:0] inputADC2;
+
+//tri [1:0] debugLed;
+wire led;
+reg but;
+
+/*reg startBut, stopBut, changePathBut;
+wire [3:0] pathNum;
+wire       pathNumInv;
+wire [1:0] direction;
+reg       beginTrack;
+reg       endTrack;
+wire       straightEngine;
+wire       reverseEngine;
+wire [2:0] disp;
+wire [7:0] seg;*/
+
+initial
+begin
+clk = 1'b1;
+forever #250 clk = ~clk; 
+end
+
+initial
+begin
+usb_clk = 1'b1;
+forever #230 usb_clk = ~usb_clk; 
+end
+
+initial
+begin
+but = 1'b1;
+# 3000000  but = ~but;
+# 50000    but = ~but;
+# 2000000 but = ~but;
+# 50000    but = ~but;
+end
+
+always @(negedge clkADC1)
+begin
+  inputADC1 = $random; 
+end
+
+always @(negedge clkADC2)
+begin
+  inputADC2 = $random; 
+end
+
+FIRBU_AM FIRBU_AMUnit1(
+.EXT_CLK(clk),
+.EXT_USB_CLK(usb_clk),
+
+.SD_CLK(sdClk),
+.SD_CMD(sdCmd),
+.SD_DAT(sdBus),
+
+.ADC_CLK1(clkADC1),
+.ADC_CLK2(clkADC2),
+.ADC_INPUT1(inputADC1),
+.ADC_INPUT2(inputADC2),
+
+.LED(),
+.BUT(but),
+
+.D(),
+.RXF(1'b1),
+.TXE(1'b0),
+.WR(),
+.RD(),
+.SIWU(),
+.OE());
+
+	
+sdModel card (
+  .sdClk(sdClk),
+  .cmd(sdCmd),
+  .dat(sdBus));
+
+	
+endmodule

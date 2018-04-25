@@ -1,0 +1,10 @@
+PLL_Name	pllADC:pllADCUnit|altpll:altpll_component|pllADC_altpll:auto_generated|pll1
+PLLJITTER	35
+PLLSPEmax	84
+PLLSPEmin	-53
+
+PLL_Name	pllSdClocking:SDTiming|altpll:altpll_component|pllSdClocking_altpll:auto_generated|pll1
+PLLJITTER	37
+PLLSPEmax	84
+PLLSPEmin	-53
+

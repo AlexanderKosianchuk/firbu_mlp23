@@ -1,0 +1,121 @@
+module engineController();
+
+//FSM
+
+always @(posedge CLK or posedge RST)
+begin
+
+if(RST) 
+begin
+  state <= init;
+end
+else
+begin
+	state <= nextState;
+end
+
+end
+
+always @(RST or state or 
+			INIT_COMPLT or WB_COMPLT or RB_COMPLT or WMB_COMPLT or RMB_COMPLT or
+			COMPLT_BP or COMPLT_SC or COMPLT_M or BUFREADY_DIGI)
+begin
+
+if (RST) 
+begin
+	nextState <= init;
+	INIT_ENA <= 1'b0;
+	
+	RB_ENA <= 1'b0;
+	WB_ENA <= 1'b0;
+	RMB_ENA <= 1'b0;
+	WMB_ENA <= 1'b0;
+	
+	ENA_M <= 1'b0;
+	
+	ENA_BP <= 1'b0;
+	ENA_SC <= 1'b0;	
+	
+	ENA_DIGI <= 1'b0;
+	
+	PAGE_UPDATING_FAT_SC <= 32'h00000000;
+	CLUST_EOF_SC <= 32'h00000000;
+	RST_CLUST_COUNTER_SC <= 1'b1;
+
+	LED_INIT_ERROR <= 2'b0;	
+end
+else 
+begin
+
+case (state)
+
+//=====================================
+init:
+begin
+	if(INIT_COMPLT == 1'b0)
+	begin
+		INIT_ENA <= 1'b1;
+		RB_ENA <= 1'b0;
+		WB_ENA <= 1'b0;
+		RMB_ENA <= 1'b0;
+		WMB_ENA <= 1'b0;
+		
+		ENA_M <= 1'b0;
+		
+		ENA_BP <= 1'b0;
+		ENA_SC <= 1'b0;
+		
+		ENA_DIGI <= 1'b0;
+		
+		LED_INIT_ERROR <= 2'b01;
+		
+		nextState <= init;
+	end
+	else if(INIT_COMPLT == 1'b1)
+	begin
+		nextState <= muteAfterInit;
+	end
+	else
+	begin
+		nextState <= init;
+	end
+end
+
+//=====================================
+unavaliable:
+begin
+
+	$display ("engineController became unavaliable");
+	nextState <= unavaliable_latch;
+end
+//=====================================
+unavaliable_latch:
+begin
+	INIT_ENA <= 1'b0;
+	RB_ENA <= 1'b0;
+	WB_ENA <= 1'b0;
+	RMB_ENA <= 1'b0;
+	WMB_ENA <= 1'b0;
+	
+	ENA_M <= 1'b0;
+	
+	ENA_BP <= 1'b0;
+	ENA_SC <= 1'b0;
+	
+	ENA_DIGI <= 1'b0;
+	
+	LED_INIT_ERROR <= 2'b00;
+	
+	nextState <= unavaliable;
+end
+//=====================================		 
+default: 
+begin
+	$display ("File management FSM reached undefined state");
+end
+
+endcase
+end //else RST
+end //always
+
+endmodule

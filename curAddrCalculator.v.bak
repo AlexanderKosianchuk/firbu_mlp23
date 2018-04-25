@@ -1,0 +1,24 @@
+module curAddrCalculator(
+CLK,
+RST,
+INIT_NUM,
+MID_NUM,
+CUR_NUM);
+
+input CLK, RST;
+input [31:0] INIT_NUM, MID_NUM;
+output reg [31:0] CUR_NUM;
+
+always @ (posedge RST or posedge CLK)
+begin
+	if(RST)
+	begin
+		CUR_NUM <= INIT_NUM
+	end
+	else
+	begin
+		CUR_NUM <= 
+	end
+end
+
+endmodule

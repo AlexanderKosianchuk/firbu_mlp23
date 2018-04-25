@@ -1,0 +1,39 @@
+`include "timescale.v"
+
+module muteCounter(CLK,RST,ENA,COMPLT);
+input CLK, RST, ENA;
+output reg COMPLT;
+
+parameter Tm;
+
+reg [31:0] i;
+
+always @(posedge CLK)
+begin
+if(RST)
+begin
+	i = 0;
+	COMPLT = 1'b0;
+end
+else
+begin
+	if(ENA)
+	begin
+		if(i<=Tm)
+		begin
+			COMPLT = 1'b0;
+			i = i + 1;
+		end
+		else
+		begin
+			COMPLT = 1'b1;
+		end
+	end
+	else
+	begin
+		i = 0;
+		COMPLT = 1'b0;
+	end
+end
+end
+endmodule

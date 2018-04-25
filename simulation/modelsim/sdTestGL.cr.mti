@@ -1,0 +1,206 @@
+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/altera_primitives.v {1 {vlog -work work -nocovercells C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/altera_primitives.v
+Model Technology ModelSim ALTERA vlog 10.0d Compiler 2012.01 Jan 18 2012
+-- Compiling module global
+-- Compiling module carry
+-- Compiling module cascade
+-- Compiling module carry_sum
+-- Compiling module exp
+-- Compiling module soft
+-- Compiling module opndrn
+-- Compiling module row_global
+-- Compiling module TRI
+-- Compiling module lut_input
+-- Compiling module lut_output
+-- Compiling module latch
+-- Compiling module dlatch
+-- Compiling module prim_gdff
+-- Compiling module dff
+-- Compiling module dffe
+-- Compiling module dffea
+-- Compiling module dffeas
+-- Compiling module prim_gtff
+-- Compiling module tff
+-- Compiling module tffe
+-- Compiling module prim_gjkff
+-- Compiling module jkff
+-- Compiling module jkffe
+-- Compiling module prim_gsrff
+-- Compiling module srff
+-- Compiling module srffe
+-- Compiling module clklock
+-- Compiling module alt_inbuf
+-- Compiling module alt_outbuf
+-- Compiling module alt_outbuf_tri
+-- Compiling module alt_iobuf
+-- Compiling module alt_inbuf_diff
+-- Compiling module alt_outbuf_diff
+-- Compiling module alt_outbuf_tri_diff
+-- Compiling module alt_iobuf_diff
+-- Compiling module alt_bidir_diff
+-- Compiling module alt_bidir_buf
+-- Compiling UDP PRIM_GDFF_LOW
+-- Compiling UDP PRIM_GDFF_HIGH
+
+Top level modules:
+	global
+	carry
+	cascade
+	carry_sum
+	exp
+	soft
+	opndrn
+	row_global
+	TRI
+	lut_input
+	lut_output
+	latch
+	dlatch
+	dff
+	dffe
+	dffea
+	dffeas
+	tff
+	tffe
+	jkff
+	jkffe
+	srff
+	srffe
+	clklock
+	alt_inbuf
+	alt_outbuf
+	alt_outbuf_tri
+	alt_iobuf
+	alt_inbuf_diff
+	alt_outbuf_diff
+	alt_outbuf_tri_diff
+	alt_iobuf_diff
+	alt_bidir_diff
+	alt_bidir_buf
+
+} {} {}} C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/defines.v {1 {vlog -work work -nocovercells C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/defines.v
+Model Technology ModelSim ALTERA vlog 10.0d Compiler 2012.01 Jan 18 2012
+
+} {} {}} C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/FIRBU_AM_8_1200mv_85c_slow.vo {1 {vlog -work work -v C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/altera_primitives.v -v C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/cycloneiii_atoms.v -nocovercells C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/FIRBU_AM_8_1200mv_85c_slow.vo
+Model Technology ModelSim ALTERA vlog 10.0d Compiler 2012.01 Jan 18 2012
+-- Compiling module FIRBU_AM
+-- Scanning library file 'C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/altera_primitives.v'
+-- Compiling module dffeas
+-- Compiling UDP PRIM_GDFF_LOW
+-- Compiling UDP PRIM_GDFF_HIGH
+-- Scanning library file 'C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/cycloneiii_atoms.v'
+-- Compiling module cycloneiii_pll
+-- Compiling module cycloneiii_lcell_comb
+-- Compiling module cycloneiii_ram_block
+-- Compiling module cycloneiii_io_ibuf
+-- Compiling module cycloneiii_io_obuf
+-- Compiling module cycloneiii_clkctrl
+-- Compiling module cycloneiii_jtag
+-- Scanning library file 'C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/altera_primitives.v'
+-- Scanning library file 'C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/cycloneiii_atoms.v'
+-- Compiling module cycloneiii_mux41
+-- Compiling module cycloneiii_m_cntr
+-- Compiling module cycloneiii_n_cntr
+-- Compiling module cycloneiii_scale_cntr
+-- Compiling module cycloneiii_ram_pulse_generator
+-- Compiling module cycloneiii_ram_register
+-- Compiling module cycloneiii_ena_reg
+
+Top level modules:
+	FIRBU_AM
+
+} {} {}} C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/sdTest.v {1 {vlog -work work -nocovercells C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/sdTest.v
+Model Technology ModelSim ALTERA vlog 10.0d Compiler 2012.01 Jan 18 2012
+-- Compiling module sdTest
+
+Top level modules:
+	sdTest
+
+} {} {}} C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/timescale.v {1 {vlog -work work -nocovercells C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/timescale.v
+Model Technology ModelSim ALTERA vlog 10.0d Compiler 2012.01 Jan 18 2012
+
+} {} {}} C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/altera_lnsim.sv {1 {vlog -work work -sv -nocovercells C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/altera_lnsim.sv
+Model Technology ModelSim ALTERA vlog 10.0d Compiler 2012.01 Jan 18 2012
+-- Compiling package altera_lnsim_functions
+-- Compiling module altera_pll
+-- Importing package altera_lnsim_functions
+-- Compiling module dps_extra_kick
+-- Compiling module dprio_init
+-- Compiling module altera_stratixv_pll
+-- Compiling module altera_arriav_pll
+-- Compiling package altera_generic_pll_functions
+-- Compiling module generic_pll
+-- Importing package altera_generic_pll_functions
+-- Compiling module generic_cdr
+-- Compiling module common_28nm_ram_pulse_generator
+-- Compiling module common_28nm_ram_register
+-- Compiling module common_28nm_ram_block
+-- Compiling module generic_m20k
+-- Compiling module generic_m10k
+-- Compiling module common_28nm_mlab_cell_pulse_generator
+-- Compiling module common_28nm_mlab_latch
+-- Compiling module common_28nm_mlab_cell_core
+-- Compiling module common_porta_latches
+-- Compiling module generic_28nm_hp_mlab_cell_impl
+-- Compiling module common_porta_registers
+-- Compiling module generic_28nm_lc_mlab_cell_impl
+-- Compiling module generic_mux
+-- Compiling module generic_device_pll
+-- Compiling module altera_mult_add
+-- Compiling module ama_signed_extension_function
+-- Compiling module ama_dynamic_signed_function
+-- Compiling module ama_register_function
+-- Compiling module ama_register_with_ext_function
+-- Compiling module ama_data_split_reg_ext_function
+-- Compiling module ama_coef_reg_ext_function
+-- Compiling module ama_adder_function
+-- Compiling module ama_multiplier_function
+-- Compiling module ama_preadder_function
+-- Compiling module ama_accumulator_function
+-- Compiling module ama_systolic_adder_function
+-- Compiling module ama_scanchain
+-- Compiling module altera_pll_reconfig_tasks
+
+Top level modules:
+	altera_pll
+	generic_cdr
+	generic_m20k
+	generic_m10k
+	common_porta_latches
+	generic_28nm_hp_mlab_cell_impl
+	generic_28nm_lc_mlab_cell_impl
+	generic_mux
+	generic_device_pll
+	altera_mult_add
+	altera_pll_reconfig_tasks
+
+} {} {}} C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/sd_crc_7.v {1 {vlog -work work -nocovercells C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/sd_crc_7.v
+Model Technology ModelSim ALTERA vlog 10.0d Compiler 2012.01 Jan 18 2012
+-- Compiling module sd_crc_7
+
+Top level modules:
+	sd_crc_7
+
+} {} {}} C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/sd_crc_16.v {1 {vlog -work work -nocovercells C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/sd_crc_16.v
+Model Technology ModelSim ALTERA vlog 10.0d Compiler 2012.01 Jan 18 2012
+-- Compiling module sd_crc_16
+
+Top level modules:
+	sd_crc_16
+
+} {} {}} C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/sd_defines.v {1 {vlog -work work -nocovercells C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/sd_defines.v
+Model Technology ModelSim ALTERA vlog 10.0d Compiler 2012.01 Jan 18 2012
+
+} {} {}} C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/sdModel.v {1 {vlog -work work -v C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/altera_primitives.v -v C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/cycloneiii_atoms.v -nocovercells C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/sdModel.v
+Model Technology ModelSim ALTERA vlog 10.0d Compiler 2012.01 Jan 18 2012
+-- Compiling module sdModel
+-- Scanning library file 'C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/altera_primitives.v'
+-- Scanning library file 'C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/simulation/modelsim/lib/cycloneiii_atoms.v'
+
+Referenced (but uncompiled) modules or primitives:
+	sd_crc_16
+	sd_crc_7
+
+Top level modules:
+	sdModel
+
+} {} {}}

@@ -1,0 +1,501 @@
+`include "timescale.v"
+`define MEMSIZE 24643590 // 2mb block
+
+module NANDModel(
+CLE,
+ALE,
+CE1,
+RE1,
+WE1,
+WP1,
+RB,
+PRE,
+IO);
+
+input  tri       CLE;
+input  tri       ALE;
+input  tri       CE1;
+input  tri       RE1;
+input  tri       WE1;
+input  tri       WP1;
+output tri       RB;
+input  tri       PRE;
+inout  tri [7:0] IO;
+
+reg cmdReadingBegin;
+reg [7:0] cmd;
+reg [39:0] addr;
+
+//=====================================
+reg         ENA_CR;
+wire        COMPLT_CR;
+wire [39:0] ADDR_CR;
+wire        GO_RST_CR;
+wire        GO_SEND_DATA_CR;
+//---------
+cmdReader cmdReaderUnit(
+WE1,
+CLE,
+ALE,
+IO,
+ENA_CR,
+ADDR_CR,
+GO_RST_CR,
+GO_SEND_DATA_CR,
+COMPLT_CR);
+
+
+//=====================================
+reg        ENA_DS;
+tri        COMPLT_DS;
+reg [39:0] ADDR_DS;
+//---------
+dataSender dataSenderUnit(
+CE1,
+RE1,
+ENA_DS,
+ADDR_DS,
+IO,
+COMPLT_DS);
+
+//=====================================
+reg ENA_MC;
+tri COMPLT_MC;
+//---------
+muteBusyCounter muteBusyCounterUnit(
+ENA_MC,
+RB,
+COMPLT_MC);
+
+//=====================================
+
+//FSM
+reg [9:0] state;
+reg [9:0] nextState;
+
+localparam
+readCmd  = 1,
+busy     = 2,
+sendPage = 3;
+
+reg rst;
+reg clk;
+  
+initial
+begin
+rst = 1'b1;
+clk = 1'b1;
+#20000 rst = 1'b0; 
+forever #250 clk = ~clk; 
+end
+
+always @(clk or negedge rst)
+begin
+
+if(rst) 
+begin
+	state <= readCmd;
+end
+else
+begin
+	state <= nextState;
+end
+
+end
+
+always @(rst or state or 
+         COMPLT_CR or COMPLT_MC or COMPLT_DS)
+begin
+
+if (rst) 
+begin
+	state <= readCmd;	
+	ENA_CR <= 1'b0;
+	ENA_MC <= 1'b0;
+	ENA_DS <= 1'b0;
+end
+else 
+begin
+
+case (state)
+
+//=====================================
+readCmd:
+begin
+	if(COMPLT_CR == 1'b0)
+	begin
+	  if(PRE == 1'b0)
+	  begin
+	    ENA_MC <= 1'b0;
+		  ENA_CR <= 1'b1;
+		  ENA_DS <= 1'b0;
+		  nextState <= readCmd;
+		end
+		else if(PRE == 1'b1)
+		begin
+		  addr = 39'b0;
+		  nextState <= busy;
+		end
+		else
+		begin
+		  ENA_MC <= 1'b0;
+		  ENA_CR <= 1'b1;
+		  ENA_DS <= 1'b0;
+		  addr <= ADDR_CR;
+		  nextState <= readCmd;
+		end
+	end
+	else if(COMPLT_CR == 1'b1)
+	begin
+	 ENA_MC <= 1'b0;
+	 ENA_CR <= 1'b1;
+	 ENA_DS <= 1'b0;
+	 addr <= ADDR_CR;
+	 nextState <= busy;
+	end
+	else
+	begin
+		nextState <= readCmd;
+	end
+end
+//=====================================
+busy:
+begin
+	if(COMPLT_MC == 1'b0)
+	begin
+		ENA_CR <= 1'b0;
+		ENA_DS <= 1'b0;
+		ENA_MC <= 1'b1;
+		nextState <= busy;
+	end
+	else if(COMPLT_MC == 1'b1)
+	begin
+	  if(GO_SEND_DATA_CR)
+	  begin
+	   ENA_CR <= 1'b0;
+	   ENA_DS <= 1'b0;
+	   ENA_MC <= 1'b1;
+	   nextState <= sendPage;
+		end
+		else if(GO_RST_CR)
+		begin
+		  ENA_CR <= 1'b0;
+		  ENA_DS <= 1'b0;
+		  ENA_MC <= 1'b1;
+		  nextState <= readCmd;
+		end
+	end
+	else
+	begin
+		nextState <= busy;
+	end
+end
+//=====================================
+sendPage:
+begin
+	if(COMPLT_DS == 1'b0)
+	begin		
+		ENA_MC <= 1'b0;
+		ENA_DS <= 1'b1;
+	
+		nextState <= sendPage;
+	end
+	else if(COMPLT_DS == 1'b1)
+	begin
+		nextState <= readCmd;
+	end
+	else
+	begin
+		nextState <= sendPage;
+	end
+end
+
+//=====================================		 
+default: 
+begin
+	$display ("NANADModel reached undefined state");
+end
+
+endcase
+end //else RST
+end //always
+
+endmodule
+
+module cmdReader(
+WE1,
+CLE,
+ALE,
+IO,
+ENA,
+ADDR,
+GO_RST,
+GO_SEND_DATA,
+COMPLT);
+
+input  tri        WE1;
+input  tri        CLE;
+input  tri        ALE;
+input  tri [7:0]  IO;
+input  tri        ENA;
+output reg [39:0] ADDR;
+output reg        GO_RST;
+output reg        GO_SEND_DATA;
+output tri        COMPLT;
+
+reg [7:0] cmd;
+reg startReadingAddr;
+reg beginShift;
+reg rst;
+  
+initial
+begin
+rst = 1'b1;
+#20000 rst = 1'b0; 
+end
+
+reg COMPLTpermit;
+assign COMPLT = rst ? 1'b0 : (COMPLTpermit ? 1'b1 : 1'b0);
+
+always @ (posedge WE1)
+begin
+  if(ENA)
+  begin
+    if(CLE)
+    begin 
+      if(!ALE)
+      begin
+        cmd = IO;
+      end
+    end
+  end
+  else
+  begin
+    cmd = {8{1'bz}};
+  end
+end
+
+always @ (posedge WE1 or negedge rst or ENA)
+begin
+if(rst)
+begin
+  COMPLTpermit = 1'b0;
+  startReadingAddr = 1'b0;
+end
+else
+begin
+  if(ENA)
+  begin
+  if(cmd == {8{1'b0}})
+  begin
+    COMPLTpermit = 1'b0;
+    startReadingAddr = 1'b1;
+    GO_RST <= 1'b0;
+    GO_SEND_DATA <= 1'b0;
+  end
+  else if(cmd == 8'b00110000)
+  begin
+    startReadingAddr = 1'b0;
+    COMPLTpermit = 1'b1;
+    GO_RST <= 1'b0;
+    GO_SEND_DATA <= 1'b1;
+  end
+  else if(cmd == 8'b11111111)
+  begin
+    startReadingAddr = 1'b0;
+    COMPLTpermit = 1'b1;
+    GO_RST <= 1'b1;
+    GO_SEND_DATA <= 1'b0;
+  end
+  else
+  begin
+    COMPLTpermit = 1'b0;
+  end
+  end
+  else
+  begin
+    COMPLTpermit = 1'b0;
+    startReadingAddr = 1'b0;
+  end
+end
+end
+
+always @ (posedge WE1)
+begin
+  if(startReadingAddr)
+  begin 
+    if(ALE)
+    begin
+      ADDR [7:0] = IO;
+      beginShift = 1'b1;
+    end
+    else
+    begin
+      beginShift = 1'b0;
+    end
+  end
+  else
+  begin
+    beginShift = 1'b0;
+  end
+end
+
+always @ (negedge WE1)
+begin
+  if(beginShift)
+  begin
+    if(ALE)
+    begin
+      ADDR = ADDR << 4'b1000;
+    end
+  end 
+end
+
+endmodule
+
+//===================================
+module muteBusyCounter(
+ENA,
+RB,
+COMPLT);
+
+input  tri ENA;
+output reg RB;
+output reg COMPLT;
+
+reg internalClk;
+reg [15:0] i;
+initial
+begin
+internalClk = 1'b1;
+forever #250 internalClk = ~internalClk; 
+end
+
+always @ (posedge internalClk)
+begin
+  if(ENA)
+  begin
+    if(i < 2000)
+    begin
+      COMPLT <= 1'b0;
+      RB <= 1'b0;
+    end
+    else
+    begin
+      COMPLT <= 1'b1;
+      RB <= 1'b1;
+    end
+  end
+  else
+  begin
+    COMPLT <= 1'b0;
+    RB <= 1'b1;
+  end
+end
+
+always @ (negedge internalClk)
+begin
+  if(ENA)
+  begin
+    if(!COMPLT)
+    begin
+      i <= i + 1;
+    end
+  end
+  else
+  begin
+    i <= 1'b0;
+  end
+end
+
+endmodule
+//===================================
+
+module dataSender(
+CE1,
+RE1,
+ENA,
+ADDR,
+IO,
+COMPLT);
+
+input  tri        CE1;
+input  tri        RE1;
+input  tri        ENA;
+input  tri [39:0] ADDR;
+output reg [7:0]  IO;
+output reg        COMPLT;
+
+reg [7:0] NANDmem [0:`MEMSIZE];
+initial $readmemh("hex/ramdisk.hex",NANDmem);
+
+reg [10:0] pageSize = 11'b11111111111;
+reg [8:0] i;
+reg rst;
+reg IOpermit;
+
+initial
+begin
+rst = 1'b1;
+#20000 rst = 1'b0; 
+end
+
+
+always @ (negedge RE1 or negedge rst)
+begin
+if(rst)
+begin
+  IOpermit <= 1'b0;
+  IO = 8'hzz;
+end
+else
+begin
+  if(ENA)
+  begin
+    if(!COMPLT)
+    begin
+      if(!CE1)
+      begin
+        IOpermit <= 1'b1;
+        IO = NANDmem [i] [7:0];
+      end
+      else
+      begin
+        IOpermit <= 1'b0;
+        IO = {8{1'bz}};
+      end
+    end
+  end
+  else
+  begin
+    IO = 8'hzz;
+    IOpermit <= 1'b0;
+  end
+end
+end
+
+always @ (posedge RE1)
+begin
+  if(ENA)
+  begin
+    if(i <= pageSize)
+    begin
+      i <= i + 1'b1;
+      COMPLT <= 1'b0;
+    end
+    else
+    begin
+      COMPLT <= 1'b1;
+    end
+  end
+  else
+  begin
+    i <= 1'b0;
+    COMPLT <= 1'b0;
+  end
+end
+
+endmodule
+//===================================
+
+

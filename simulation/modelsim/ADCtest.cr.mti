@@ -1,0 +1,15 @@
+C:/Store/Altera/MLP-16/FIRBU_AM/simulation/modelsim/movingAverageTest.v {1 {vlog -work work -nocovercells C:/Store/Altera/MLP-16/FIRBU_AM/simulation/modelsim/movingAverageTest.v
+Model Technology ModelSim ALTERA vlog 10.0d Compiler 2012.01 Jan 18 2012
+-- Compiling module movingAverageTest
+
+Top level modules:
+	movingAverageTest
+
+} {} {}} C:/Store/Altera/MLP-16/FIRBU_AM/movingAverage.v {1 {vlog -work work -nocovercells C:/Store/Altera/MLP-16/FIRBU_AM/movingAverage.v
+Model Technology ModelSim ALTERA vlog 10.0d Compiler 2012.01 Jan 18 2012
+-- Compiling module movingAverage
+
+Top level modules:
+	movingAverage
+
+} {} {}}

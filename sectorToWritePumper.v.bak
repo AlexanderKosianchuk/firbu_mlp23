@@ -1,0 +1,147 @@
+module sectorToWritePumper(
+CLK,
+ENA,
+
+START_RADDR_DBUFF,
+RADDR_DBUFF,
+RCLK_DBUFF,
+Q_DBUFF,
+
+INPUT_SW_PUMP,
+WADDR_SW_PUMP,
+WCLK_SW_PUMP,
+WENA_SW_PUMP,
+START_WADDR_SW_PUMP,
+
+BUFREADY,
+COMPLT_PUMPER);
+
+input wire        CLK, ENA;
+
+input  wire  [11:0] START_RADDR_DBUFF;
+output reg   [11:0] RADDR_DBUFF;
+output wire	        RCLK_DBUFF;
+input  wire  [7:0]  Q_DBUFF;
+
+output wire  [7:0]  INPUT_SW_PUMP;
+output reg   [9:0]  WADDR_SW_PUMP;
+output wire         WCLK_SW_PUMP;
+output wire         WENA_SW_PUMP;
+input  wire  [9:0]  START_WADDR_SW_PUMP; 
+
+input  wire         BUFREADY;
+output reg          COMPLT_PUMPER;
+ 
+assign RCLK_DBUFF    = ENA ? CLK : 1'b0;
+assign WCLK_SW_PUMP  = ENA ? !CLK : 1'b0;
+assign WENA_SW_PUMP  = ENA;
+assign INPUT_SW_PUMP = ENA ? Q_DBUFF : {8{1'bz}};
+
+reg ENA_COUNTER;
+
+localparam glitchTime = 2;
+reg [3:0] muteCountersTimer;
+
+always @ (negedge ENA or negedge CLK)
+begin
+	if(!ENA)
+	begin
+		muteCountersTimer <= 0;
+		ENA_COUNTER <= 1'b0;
+	end
+	else
+	begin
+		if(muteCountersTimer < glitchTime)
+		begin
+			ENA_COUNTER <= 1'b0;
+			muteCountersTimer <= muteCountersTimer + 1;
+		end
+		else
+		begin
+			muteCountersTimer <= muteCountersTimer;
+			ENA_COUNTER <= 1'b1;
+		end
+	end
+end
+
+reg [9:0] WCounter;
+
+always @ (negedge ENA_COUNTER or negedge CLK)
+begin
+	if(!ENA_COUNTER)
+	begin
+		WCounter <= 10'd0;
+	end
+	else
+	begin
+		WCounter  <= WCounter  + 10'd1;
+	end
+end
+
+always @ (negedge ENA_COUNTER or posedge CLK)
+begin
+	if(!ENA_COUNTER)
+	begin
+		RADDR_DBUFF <= START_RADDR_DBUFF;
+	end
+	else
+	begin
+		RADDR_DBUFF <= RADDR_DBUFF + 12'd1;
+	end
+end
+
+always @ (posedge CLK)
+begin
+	if(!ENA_COUNTER)
+	begin
+		WADDR_SW_PUMP <= START_WADDR_SW_PUMP;
+	end
+	else
+	begin
+		if(WCounter <= 10'd1)
+	   begin
+			WADDR_SW_PUMP <= START_WADDR_SW_PUMP;
+	   end
+	   else
+	   begin
+			WADDR_SW_PUMP <= WADDR_SW_PUMP + 10'd1;
+	   end
+	end
+end
+
+always @ (negedge ENA or negedge CLK)
+begin
+	if(!ENA)
+	begin
+		COMPLT_PUMPER <= 1'b0;
+	end
+	else
+	begin
+		if(BUFREADY == 1'b0)
+		begin
+			if(WADDR_SW_PUMP < 10'd512)
+			begin
+				COMPLT_PUMPER <= 1'b1;
+			end
+			else
+			begin
+				COMPLT_PUMPER <= 1'b0;
+			end
+		end
+		else if(BUFREADY == 1'b1)
+		begin
+			if(WADDR_SW_PUMP >= 10'd512)
+			begin
+				COMPLT_PUMPER <= 1'b1;
+			end
+			else
+			begin
+				COMPLT_PUMPER <= 1'b0;
+			end
+		end
+	end
+end
+
+
+
+endmodule

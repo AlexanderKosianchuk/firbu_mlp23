@@ -1,0 +1,8 @@
+Warning (10268): Verilog HDL information at serialRespToParallelConverter.v(36): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at serialRespToParallelConverter.v(111): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at parallelToWideBusDataWriter.v(58): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at parallelCmdlToSerialConverter.v(32): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at inputBusToSDDatBusPovider.v(32): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at inputBusToSDDatBusPovider.v(52): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at dataCRCStatus.v(22): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at sectorToWriteFATupdater.v(113): always construct contains both blocking and non-blocking assignments

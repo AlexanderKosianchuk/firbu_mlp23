@@ -1,0 +1,413 @@
+`include "timescale.v"
+`include "defines.v"
+
+module exNANDMain(
+CLK,
+RST,
+ENA,
+ADDR_NAND,
+COMPLT,
+
+WCLK_SW,
+WENA_SW,
+WADDR_SW,
+INPUT_SW,
+
+ERROR_LED,
+
+RB,
+RE1,
+CE1,
+CLE,
+ALE,
+WE1,
+WP1,
+IO/*,
+DEBUG_CLK*/);
+
+
+input  wire        CLK, RST, ENA;
+input  wire [15:0] ADDR_NAND;
+output reg         COMPLT;
+
+output wire        WCLK_SW;
+output wire        WENA_SW;
+output wire [10:0] WADDR_SW;
+output wire [7:0]  INPUT_SW;
+
+output reg         ERROR_LED;
+
+input  wire        RB;
+output wire        RE1;
+output reg         CE1;
+output wire        CLE;
+output wire        ALE;
+output wire        WE1;
+output wire        WP1;
+inout  tri   [7:0] IO;
+
+wire REF_CLK;
+assign WP1 = 1'b1;
+
+//==================
+extNANDpll pllUnit(
+CLK,
+REF_CLK);
+//==================
+reg ENA_CW;
+wire COMPLT_CW;
+reg [55:0] CMD_CW;
+
+extNANDcmdWriter extNANDcmdWriterUnit(
+REF_CLK,
+ENA_CW,
+CMD_CW,
+CLE,
+ALE,
+WE1,
+IO,
+COMPLT_CW);
+
+//==================
+reg ENA_DR;
+wire COMPLT_DR;
+
+extNANDdataReader extNANDdataReaderUnit(
+REF_CLK,
+ENA_DR,
+
+WCLK_SW,
+WENA_SW,
+WADDR_SW,
+INPUT_SW,
+
+RE1,
+IO,
+COMPLT_DR);
+
+//==================
+reg ENA_CM;
+wire [7:0] MUTE_CM;
+
+exNANDcounterCmdWriter counterMuteUnit(
+~ENA_CM,//RST
+REF_CLK,
+MUTE_CM);
+
+localparam muteTime = 20;
+//==================
+
+localparam
+unavaliable              = 0,
+sendRst                  = 1,
+waitBusyAfterRst         = 2,
+muteAfterRst             = 3,
+sendCmdReadData          = 4,
+waitBusyAfterCmdReadData = 5,
+muteAfterCmdReadData     = 6,
+readData                 = 7;
+
+
+reg [3:0] state;
+reg [3:0] nextState;
+
+reg wasBusy;
+
+always @ (negedge RST or posedge ENA or posedge REF_CLK)
+begin
+	if(!RST)
+	begin
+	 if(ENA)
+	 begin
+	   state <= nextState;
+	  end
+		else
+		begin
+		  //state <= sendRst;		  
+		  state <= readData; //testing without sams k9
+		end
+	end
+	else
+	begin
+	  state <= sendRst;
+	end
+end
+
+always @ (RST or ENA or state or COMPLT_CW or COMPLT_DR or RB or MUTE_CM)
+begin
+	if(RST)
+	begin
+	 ENA_CW <= 1'b0;
+	 ENA_DR <= 1'b0;
+	 ENA_CM <= 1'b0;
+	 CE1 <= 1'b1;
+	 COMPLT <= 1'b0;
+	 wasBusy <= 1'b0;
+	 
+	 ERROR_LED <= 1'b0;
+	 
+	 //nextState <= sendRst;
+	 nextState <= readData; //testing without sams k9
+	end
+	else
+	begin
+	  if(ENA)
+	  begin
+		case(state)
+//=====================================
+sendRst:
+begin
+	if(COMPLT_CW == 1'b0)
+	begin
+		ENA_CW <= 1'b1;
+		CMD_CW <= 56'hff_00_00_00_00_00_00;
+		ENA_DR <= 1'b0;
+		ENA_CM <= 1'b0;
+		CE1 <= 1'b0;
+		wasBusy <= 1'b0;
+		nextState <= sendRst;
+	end
+	else if(COMPLT_CW == 1'b1)
+	begin
+		nextState <= waitBusyAfterRst;
+	end
+	else
+	begin
+		nextState <= sendRst;
+	end
+end
+//=====================================
+waitBusyAfterRst:
+begin
+	if(RB == 1'b1)
+	begin		
+		ENA_CW <= 1'b0;
+		ENA_DR <= 1'b0;
+		ENA_CM <= 1'b0;
+		CE1 <= 1'b0;
+		if(wasBusy == 1'b1)
+		begin
+		  nextState <= muteAfterRst;
+		end
+		else
+		begin
+		  nextState <= waitBusyAfterRst; 
+		end
+	end
+	else if(RB == 1'b0)
+	begin
+		ENA_CW <= 1'b0;
+		ENA_DR <= 1'b0;
+		ENA_CM <= 1'b0;
+		CE1 <= 1'b0;
+		wasBusy <= 1'b1;
+		nextState <= waitBusyAfterRst;
+	end
+	else
+	begin
+		nextState <= waitBusyAfterRst;
+	end
+end
+//=====================================
+muteAfterRst:
+begin
+	if(MUTE_CM <= muteTime)
+	begin
+		ENA_CW <= 1'b0;
+		ENA_DR <= 1'b0;
+		ENA_CM <= 1'b1;
+		CE1 <= 1'b0;
+		wasBusy <= 1'b0;
+		nextState <= muteAfterRst;
+	end
+	else if(MUTE_CM > muteTime)
+	begin
+		nextState <= sendCmdReadData;
+	end
+	else
+	begin
+		nextState <= muteAfterRst;
+	end
+end
+//=====================================
+sendCmdReadData:
+begin
+	if(COMPLT_CW == 1'b0)
+	begin
+		ENA_CW <= 1'b1;
+		//--
+		CMD_CW  [55:48] <= 8'h00;			
+		CMD_CW  [47:32] <= 16'h0000;
+		
+		/*CMD_CW [31] <= ADDR_NAND [0];
+		CMD_CW [30] <= ADDR_NAND [1];
+		CMD_CW [29] <= ADDR_NAND [2];
+		CMD_CW [28] <= ADDR_NAND [3];
+		
+		CMD_CW [27] <= ADDR_NAND [4];
+		CMD_CW [26] <= ADDR_NAND [5];
+		CMD_CW [25] <= ADDR_NAND [6];
+		CMD_CW [24] <= ADDR_NAND [7];
+		
+		CMD_CW [23] <= ADDR_NAND [8];
+		CMD_CW [22] <= ADDR_NAND [9];
+		CMD_CW [21] <= ADDR_NAND [10];
+		CMD_CW [20] <= ADDR_NAND [11];
+		
+		CMD_CW [19] <= ADDR_NAND [12];
+		CMD_CW [18] <= ADDR_NAND [13];
+		CMD_CW [17] <= ADDR_NAND [14];
+		CMD_CW [16] <= ADDR_NAND [15];*/
+		
+		CMD_CW [31] <= ADDR_NAND [15];
+		CMD_CW [30] <= ADDR_NAND [14];
+		CMD_CW [29] <= ADDR_NAND [13];
+		CMD_CW [28] <= ADDR_NAND [12];
+		
+		CMD_CW [27] <= ADDR_NAND [11];
+		CMD_CW [26] <= ADDR_NAND [10];
+		CMD_CW [25] <= ADDR_NAND [9];
+		CMD_CW [24] <= ADDR_NAND [8];
+		
+		CMD_CW [23] <= ADDR_NAND [7];
+		CMD_CW [22] <= ADDR_NAND [6];
+		CMD_CW [21] <= ADDR_NAND [5];
+		CMD_CW [20] <= ADDR_NAND [4];
+		
+		CMD_CW [19] <= ADDR_NAND [3];
+		CMD_CW [18] <= ADDR_NAND [2];
+		CMD_CW [17] <= ADDR_NAND [1];
+		CMD_CW [16] <= ADDR_NAND [0];
+		
+		CMD_CW  [15:0] <= 16'h0030;
+		//--
+		ENA_DR <= 1'b0;
+		ENA_CM <= 1'b0;
+		CE1 <= 1'b0;
+		wasBusy <= 1'b0;
+		nextState <= sendCmdReadData;
+	end
+	else if(COMPLT_CW == 1'b1)
+	begin
+		nextState <= waitBusyAfterCmdReadData;
+		//nextState <= muteAfterCmdReadData;
+	end
+	else
+	begin
+		nextState <= sendCmdReadData;
+	end
+end
+//=====================================
+waitBusyAfterCmdReadData:
+begin
+	if(RB == 1'b1)
+	begin		
+		ENA_CW <= 1'b0;
+		ENA_DR <= 1'b0;
+		ENA_CM <= 1'b0;
+		CE1 <= 1'b0;
+		if(wasBusy == 1'b1)
+		begin
+		  nextState <= muteAfterCmdReadData;
+		end
+		else
+		begin
+		  nextState <= waitBusyAfterCmdReadData; 
+		end
+	end
+	else if(RB == 1'b0)
+	begin
+		ENA_CW <= 1'b0;
+		ENA_DR <= 1'b0;
+		ENA_CM <= 1'b0;
+		CE1 <= 1'b0;
+		wasBusy <= 1'b1;
+		nextState <= waitBusyAfterCmdReadData;
+	end
+	else
+	begin
+		nextState <= waitBusyAfterCmdReadData;
+	end
+end
+//=====================================
+muteAfterCmdReadData:
+begin
+	if(MUTE_CM <= muteTime)
+	begin
+		ENA_CW <= 1'b0;
+		ENA_DR <= 1'b0;
+		ENA_CM <= 1'b1;
+		CE1 <= 1'b0;
+		wasBusy <= 1'b0;
+		nextState <= muteAfterCmdReadData;
+	end
+	else if(MUTE_CM > muteTime)
+	begin
+		nextState <= readData;
+	end
+	else
+	begin
+		nextState <= muteAfterCmdReadData;
+	end
+end
+
+//=====================================
+readData:
+begin
+	if(COMPLT_DR == 1'b0)
+	begin
+		ENA_CW <= 1'b0;
+		ENA_DR <= 1'b1;
+		ENA_CM <= 1'b0;
+		CE1 <= 1'b0;
+		wasBusy <= 1'b0;
+		
+		ERROR_LED <= 1'b1;	
+		
+		nextState <= readData;
+	end
+	else if(COMPLT_DR == 1'b1)
+	begin
+		nextState <= unavaliable;
+	end
+	else
+	begin
+		nextState <= readData;
+	end
+end	
+//==================
+unavaliable:
+begin
+	ENA_CW <= 1'b0;
+	ENA_DR <= 1'b0;
+	ENA_CM <= 1'b0;
+	CE1 <= 1'b1;
+	COMPLT <= 1'b1;
+	
+	ERROR_LED <= 1'b0;	
+	
+	nextState <= unavaliable;
+end			
+		
+
+		
+		endcase
+		end
+		else
+		begin
+		  ENA_CW <= 1'b0;
+		  ENA_DR <= 1'b0;
+		  ENA_CM <= 1'b0;
+		  CE1 <= 1'b1;
+		  COMPLT <= 1'b0;
+		  wasBusy <= 1'b0;
+		  
+		  ERROR_LED <= 1'b0;	
+		  
+		  nextState <= sendRst;
+		end
+	end
+end
+
+
+endmodule

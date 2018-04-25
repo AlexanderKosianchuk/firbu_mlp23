@@ -1,0 +1,49 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/pllSlowFAT.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/segDisp.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/peripheralController.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/pathNumCounter.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/engineController.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/butStartStopController.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteDigitizerAddrCounter.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/blockCounter.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/transfrMultBlockWriteCounter.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteFATconstructorAddrCounter.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/sectorToWriteAddrCounterOut.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/timescale.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWrite.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorStoreReading.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/registers.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/pllSdClocking.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/defines.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/dataReader.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/cmdRepeatCounter.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/acmdCounter.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteFATpage.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/filmProtect1.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/filmProtect2.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/movingAverage.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/db {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/db/pllsdclocking_altpll.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/db {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/db/pllslowfat_altpll.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/FIRBU_AM.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorBytePicker.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/serialRespToParallelConverter.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/serial_crc16.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/serial_crc7.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/parallelToWideBusDataWriter.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/parallelCmdlToSerialConverter.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/parallel_crc7.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/muteCounter.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/dataWriter.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/dataCRCStatus.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/commandManager.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_sdCardFiles/dataWriterOnAir.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteDigitizer.v}
+vlog -vlog01compat -work work +incdir+C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM {C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteFATconstructor.v}
+

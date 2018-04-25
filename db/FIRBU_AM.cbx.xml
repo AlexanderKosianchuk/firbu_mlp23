@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="FIRBU_AM">
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|commandManager:commandManagerUnit|dataWriterOnAir:dataWriterOnAirUnit|sectorToWriteAddrCounterOut:sectorToWriteAddrCounterOut_OAUnit|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_j7i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:read_pointer_counter" CBX_FILE_NAME="cntr_v7j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|USBBuff:USBBuffUnit|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_86k1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|pllADC:pllADCUnit|altpll:altpll_component" CBX_FILE_NAME="pllADC_altpll.v"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|pllSdClocking:SDTiming|altpll:altpll_component" CBX_FILE_NAME="pllSdClocking_altpll.v"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|sectorStoreReading:sectorStoreReadingUnit|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_s5r1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram" CBX_FILE_NAME="altsyncram_c324.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_advance_pointer_counter" CBX_FILE_NAME="cntr_3fi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|commandManager:commandManagerUnit|blockCounter:addressCounter|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_k7i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_mux:mux" CBX_FILE_NAME="mux_grc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:\adv_point_3_and_more:advance_pointer_counter" CBX_FILE_NAME="cntr_vfi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|commandManager:commandManagerUnit|acmdCounter:acmdCounterUnit|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_76i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|commandManager:commandManagerUnit|cmdRepeatCounter:cmdRepeatCounterUnit|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_26i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|commandManager:commandManagerUnit|dataWriter:dataWriterFromRAMUnit|sectorToWriteAddrCounterOut:sectorToWriteAddrCounterOutUnit|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_j7i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|digiBuff:digiBuffUnit|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_vfk1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|sectorToWrite:sectorToWriteUnit|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_f8n1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|sectorToWriteFATpage:sectorToWriteFATpageUnit|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_97n1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_decode:wdecoder" CBX_FILE_NAME="decode_4uf.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_AM|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_read_pointer_counter" CBX_FILE_NAME="cntr_p1j.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

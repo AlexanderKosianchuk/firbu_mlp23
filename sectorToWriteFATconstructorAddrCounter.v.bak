@@ -1,0 +1,21 @@
+module sectorToWriteFATconstructorAddrCounter(
+RST,
+CLK,
+NUM);
+
+input RST, SETBEGINNING, CLK;
+output reg [7:0] NUM;
+
+always @ (posedge CLK)
+begin
+  if(RST)
+  begin
+    NUM <= 12'h000;
+  end
+  else
+  begin
+    NUM <= NUM + 12'h001;
+  end          
+end
+
+endmodule

@@ -1,0 +1,45 @@
+library verilog;
+use verilog.vl_types.all;
+entity commandManager is
+    port(
+        RST             : in     vl_logic;
+        SD_CLK          : in     vl_logic;
+        INIT_ENA        : in     vl_logic;
+        INIT_COMPLT     : out    vl_logic;
+        INIT_ERROR_NO_RESP: out    vl_logic;
+        INIT_ERROR_UNAVALIABLEVV: out    vl_logic;
+        RB_ENA          : in     vl_logic;
+        RB_COMPLT       : out    vl_logic;
+        RB_CMDERROR     : out    vl_logic;
+        RB_CRCERROR     : out    vl_logic;
+        RB_NORESPERROR  : out    vl_logic;
+        WENA_SR         : in     vl_logic;
+        WADDR_SR        : in     vl_logic_vector(9 downto 0);
+        INPUT_SR        : in     vl_logic_vector(3 downto 0);
+        W_READY         : out    vl_logic;
+        W_ERROR         : out    vl_logic;
+        WRITE_TYPE      : in     vl_logic_vector(1 downto 0);
+        WB_ENA          : in     vl_logic;
+        WB_COMPLT       : out    vl_logic;
+        RENA_SW         : out    vl_logic;
+        RCLK_SW         : out    vl_logic;
+        RADDR_SW        : out    vl_logic_vector(10 downto 0);
+        OUTPUT_SW       : in     vl_logic_vector(3 downto 0);
+        RMB_ENA         : in     vl_logic;
+        RMB_READY       : out    vl_logic;
+        RMB_COUNT       : in     vl_logic_vector(31 downto 0);
+        RMB_COMPLT      : out    vl_logic;
+        WMB_ENA         : in     vl_logic;
+        WMB_READY       : out    vl_logic;
+        WMB_COUNT       : in     vl_logic_vector(31 downto 0);
+        WMB_NUM         : out    vl_logic_vector(31 downto 0);
+        WMB_COMPLT      : out    vl_logic;
+        WMB_STOP_TRSFR  : in     vl_logic;
+        BUFREADY        : in     vl_logic_vector(1 downto 0);
+        BUFWAITING      : out    vl_logic_vector(1 downto 0);
+        ADDR            : in     vl_logic_vector(31 downto 0);
+        DATA            : in     vl_logic_vector(4095 downto 0);
+        SD_CMD          : inout  vl_logic;
+        SD_DAT          : inout  vl_logic_vector(3 downto 0)
+    );
+end commandManager;

@@ -1,0 +1,180 @@
+`include "timescale.v"
+`include "defines.v"
+
+module sectorToWriteFATupdater(
+CLK,
+ENA,
+
+WCLK_SW,
+WENA_SW,
+WADDR_SW,
+INPUT_SW,
+
+BEGIN_CLUST_NUM,
+EOF_CLUST_NUM,
+
+COMPLT);
+
+input  wire CLK, ENA;
+
+output wire       WCLK_SW;
+output reg        WENA_SW;
+output reg [7:0]  WADDR_SW;
+output reg [31:0] INPUT_SW;
+
+input wire [31:0] BEGIN_CLUST_NUM;
+input wire [31:0] EOF_CLUST_NUM;
+
+output reg COMPLT;  
+reg ENA_COUNTER;
+
+assign WCLK_SW = ENA_COUNTER ? ~CLK : 1'b0;
+
+reg [7:0]  counterPos;
+reg [7:0]  counterNeg;
+reg [31:0] currentClusterNum;
+
+localparam glitchTime = 3;
+reg [3:0] muteCountersTimer;
+
+always @ (negedge ENA or posedge CLK)
+begin
+	if(!ENA)
+	begin
+		muteCountersTimer <= 0;
+		ENA_COUNTER <= 1'b0;
+	end
+	else
+	begin
+		if(muteCountersTimer < glitchTime)
+		begin
+			ENA_COUNTER <= 1'b0;
+			muteCountersTimer <= muteCountersTimer + 1;
+		end
+		else
+		begin
+			muteCountersTimer <= muteCountersTimer;
+			ENA_COUNTER <= 1'b1;
+		end
+	end
+end
+
+always @ (negedge CLK)
+begin
+	if(!ENA_COUNTER)
+	begin
+		counterNeg <= 8'd0;
+	end
+	else
+	begin
+		  counterNeg <= counterNeg + 8'd1;
+	end
+end
+
+always @ (posedge CLK)
+begin
+	if(!ENA_COUNTER)
+	begin
+		counterPos <= 8'd0;
+	end
+	else
+	begin
+		  counterPos <= counterPos + 8'd1;
+	end
+end
+
+always @ (posedge CLK)
+begin
+	if(currentClusterNum == EOF_CLUST_NUM)
+	begin
+		INPUT_SW <= 32'hFF_FF_FF_FF;
+	end
+	else if((currentClusterNum == 32'd1) || (currentClusterNum == 32'd2) || (currentClusterNum == 32'd3))
+	begin
+	  INPUT_SW <= 32'hFF_FF_FF_FF;
+	end
+	else if(currentClusterNum > EOF_CLUST_NUM)
+	begin
+		INPUT_SW <= 32'h00_00_00_00;
+	end
+	else
+	begin
+		INPUT_SW [31:28] <= currentClusterNum [27:24];
+		INPUT_SW [27:24] <= currentClusterNum [31:28];
+		INPUT_SW [23:20] <= currentClusterNum [19:16];
+		INPUT_SW [19:16] <= currentClusterNum [23:20];
+		INPUT_SW [15:12] <= currentClusterNum [11:8];
+		INPUT_SW [11:8]  <= currentClusterNum [15:12];
+		INPUT_SW [7:4]   <= currentClusterNum [3:0];
+		INPUT_SW [3:0]   <= currentClusterNum [7:4];
+	end
+end
+
+always @(posedge CLK)
+begin
+  if(ENA)
+  begin
+    if(counterNeg <= 8'd1)// 1
+    begin
+		COMPLT <= 1'b0;
+		WENA_SW = 1'b1;
+      WADDR_SW <= 8'd0;
+    end
+    else if((counterNeg >= 16'd2) && (counterNeg <= 16'd128))
+    begin
+	   COMPLT <= 1'b0;
+		WENA_SW = 1'b1;
+      WADDR_SW <= WADDR_SW + 8'd1;
+    end
+	 else if(counterNeg == 16'd129)//more 1
+    begin
+	   COMPLT <= 1'b1;
+		WENA_SW = 1'b1;
+      WADDR_SW <= WADDR_SW + 8'd1;
+    end
+	 else if(counterNeg == 16'd130)//more 1
+    begin
+	   COMPLT <= 1'b1;
+		WENA_SW = 1'b0;
+    end
+    else
+    begin
+	   COMPLT <= COMPLT;
+		WENA_SW = WENA_SW;
+      WADDR_SW <= WADDR_SW;
+    end
+  end
+  else
+  begin
+	   COMPLT <= 1'b0;
+		WENA_SW = 1'b0;
+      WADDR_SW <= 8'd0;
+  end
+end
+
+always @(posedge CLK)
+begin
+  if(ENA)
+  begin
+    if(counterNeg == 10'd0)// 1
+    begin
+		  currentClusterNum <= BEGIN_CLUST_NUM;
+    end
+    else if((counterNeg > 10'd0) && (counterNeg <= 10'd128))
+    begin
+		    currentClusterNum <= currentClusterNum + 1;
+    end
+    else
+    begin
+	   currentClusterNum <= currentClusterNum;
+    end
+  end
+  else
+  begin
+		currentClusterNum <= currentClusterNum;
+  end
+end
+
+
+   
+endmodule

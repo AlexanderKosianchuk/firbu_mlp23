@@ -1,0 +1,21 @@
+module transfrMultBlockWriteCounter(
+RST,
+CLK,
+NUM);
+
+input wire RST, CLK;
+output reg [11:0] NUM;
+
+always @ (posedge CLK)
+begin
+        if(RST)
+        begin
+                NUM <= NUM + 12'h1;
+        end
+        else
+        begin
+                NUM <= 12'h0;
+        end
+end
+
+endmodule

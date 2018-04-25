@@ -1,0 +1,235 @@
+`include "timescale.v"
+`include "defines.v"
+
+module sectorToWriteConstructor(
+CLK,
+ENA,
+FIRST_CLUST_TO_UPDATE_SC,
+CLUST_EOF,
+WCLK_SW,
+WENA_SW,
+WADDR_SW,
+INPUT_SW,
+COMPLT);
+
+input  wire        CLK, ENA;
+input  wire [31:0] FIRST_CLUST_TO_UPDATE_SC;
+input  wire [31:0] CLUST_EOF;
+output wire        WCLK_SW;
+output wire        WENA_SW;
+output reg  [10:0] WADDR_SW;
+output reg  [31:0] INPUT_SW;
+output reg         COMPLT;
+
+assign WENA_SW = ENA ? (COMPLT ? 1'b0 : 1'b1) : 1'b0;
+assign WCLK_SW = ENA ? (COMPLT ? 1'b0 : CLK) : 1'b0;
+
+localparam pageSize = 511;        //512 
+localparam numResClustBytes = 11; //3 * 4
+localparam clustAddrInPage = 128; 
+
+localparam glitchTime = 2;
+
+reg [5:0] muteCountersTimer;
+reg ENA_COUNTER;
+
+always @(posedge CLK)
+begin
+	if(ENA)
+	begin
+		if(muteCountersTimer < glitchTime)
+		begin
+			ENA_COUNTER <= 1'b0;
+			muteCountersTimer <= muteCountersTimer + 1;
+		end
+		else
+		begin
+			muteCountersTimer <= muteCountersTimer;
+			ENA_COUNTER <= 1'b1;
+		end
+	end
+	else
+	begin
+		muteCountersTimer <= 0;
+		ENA_COUNTER <= 1'b0;
+	end
+end
+
+wire [31:0] COUNTER;
+sectorToWriteFATserviceCounter generalCounrer(
+~ENA,
+CLK,
+ENA_COUNTER,
+COUNTER);
+
+wire [31:0] COUNTER_N;
+sectorToWriteFATserviceCounter generalNegCounrer(
+~ENA,
+~CLK,
+ENA_COUNTER,
+COUNTER_N);
+
+reg [31:0] clusterNum;
+
+always @ (negedge CLK)
+begin
+	if(COUNTER < 32'd1)
+	begin
+		WADDR_SW <= 32'd0;
+		INPUT_SW <= 32'd0;
+		COMPLT <= 1'b0;
+	end
+	else 
+	begin
+//--------------------------	
+if(FIRST_CLUST_TO_UPDATE_SC <= 32'd3)
+begin
+
+if (COUNTER == 32'd1)
+begin
+	WADDR_SW <= 32'd0;
+	INPUT_SW <= 32'hf0ffff8f;
+	COMPLT <= 1'b0;
+end
+else if (COUNTER == 32'd2)
+begin
+	WADDR_SW <= 32'd1;
+	INPUT_SW <= 32'hf0ffffff;
+	COMPLT <= 1'b0;
+end
+else if(COUNTER == 32'd3)
+begin
+	WADDR_SW <= WADDR_SW + 32'd1;
+	INPUT_SW <= 32'hf0ffffff;
+	COMPLT <= 1'b0;
+end
+else if((COUNTER >= 32'd4) && (COUNTER <= 32'd128))
+begin
+	if(clusterNum == CLUST_EOF)
+	begin
+		WADDR_SW <= WADDR_SW + 32'd1;
+		INPUT_SW <= 32'hf0ffffff;
+		COMPLT <= 1'b0;
+	end
+	else
+	begin
+		WADDR_SW <= WADDR_SW + 32'd1;
+		INPUT_SW [31:29] <= clusterNum [28:25];
+		INPUT_SW [28:25] <= clusterNum [31:29];
+		INPUT_SW [24:21] <= clusterNum [20:17];
+		INPUT_SW [20:17] <= clusterNum [24:21];
+		INPUT_SW [16:12] <= clusterNum [11:8];
+		INPUT_SW [11:8]  <= clusterNum [16:12];
+		INPUT_SW [7:4]   <= clusterNum [3:0];
+		INPUT_SW [3:0]   <= clusterNum [7:4];
+		COMPLT <= 1'b0;
+	end
+end
+else
+begin
+	WADDR_SW <= 32'd0;
+	INPUT_SW <= 32'd0;
+	COMPLT <= 1'b1;
+end
+
+end
+//==========================
+else
+begin
+
+if (COUNTER == 32'd1)
+begin
+	WADDR_SW <= 32'd0;
+	INPUT_SW [31:29] <= clusterNum [28:25];
+	INPUT_SW [28:25] <= clusterNum [31:29];
+	INPUT_SW [24:21] <= clusterNum [20:17];
+	INPUT_SW [20:17] <= clusterNum [24:21];
+	INPUT_SW [16:12] <= clusterNum [11:8];
+	INPUT_SW [11:8]  <= clusterNum [16:12];
+	INPUT_SW [7:4]   <= clusterNum [3:0];
+	INPUT_SW [3:0]   <= clusterNum [7:4];
+	COMPLT <= 1'b0;
+end
+else if((COUNTER >= 32'd2) && (COUNTER <= 32'd128))
+begin
+	if(clusterNum == CLUST_EOF)
+	begin
+		WADDR_SW <= WADDR_SW + 32'd1;
+		INPUT_SW <= 32'hf0ffffff;
+		COMPLT <= 1'b0;
+	end
+	else
+	begin
+		WADDR_SW <= WADDR_SW + 32'd1;
+		INPUT_SW [31:29] <= clusterNum [28:25];
+		INPUT_SW [28:25] <= clusterNum [31:29];
+		INPUT_SW [24:21] <= clusterNum [20:17];
+		INPUT_SW [20:17] <= clusterNum [24:21];
+		INPUT_SW [16:12] <= clusterNum [31:29];
+		INPUT_SW [11:8]  <= clusterNum [11:8];
+		INPUT_SW [7:4]   <= clusterNum [3:0];
+		INPUT_SW [3:0]   <= clusterNum [7:4];
+		COMPLT <= 1'b0;
+	end
+end
+else
+begin
+	WADDR_SW <= 32'd0;
+	INPUT_SW <= 32'd0;
+	COMPLT <= 1'b1;
+end
+
+end
+//--------------------------
+	end
+end
+
+always @ (posedge CLK)
+begin
+	if(COUNTER_N < 32'd1)
+	begin
+		clusterNum <= 32'd0;
+	end
+	else 
+	begin
+//--------------------------	
+if(FIRST_CLUST_TO_UPDATE_SC <= 32'd3)
+begin
+
+if ((COUNTER_N >= 32'd1) && (COUNTER_N <= 32'd4))
+begin
+	clusterNum <= 32'd4;
+end
+else if((COUNTER_N >= 32'd5) && (COUNTER_N <= 32'd128))
+begin
+  clusterNum <= clusterNum + 32'd1;
+end
+else
+begin
+	clusterNum <= 32'd0;
+end
+
+end
+//==========================
+else
+begin
+
+if (COUNTER_N == 32'd1)
+begin
+	clusterNum <= FIRST_CLUST_TO_UPDATE_SC;
+end
+else if((COUNTER_N >= 32'd2) && (COUNTER_N <= 32'd128))
+begin
+  clusterNum <= clusterNum + 32'd1;
+end
+else
+begin
+	clusterNum <= 32'd0;
+end
+
+end
+//--------------------------
+	end
+end
+
+endmodule

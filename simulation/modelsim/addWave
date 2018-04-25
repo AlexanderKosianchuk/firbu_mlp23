@@ -1,0 +1,26 @@
+add wave  \
+sim:/sdTest/sdBus \
+sim:/sdTest/sdClk \
+sim:/sdTest/sdCmd
+add wave  \
+sim:/sdTest/FIRBU_AMunit/commandManagerUnit/dataWriterFromRAMUnit/CLK \
+sim:/sdTest/FIRBU_AMunit/commandManagerUnit/dataWriterFromRAMUnit/COMPLT \
+sim:/sdTest/FIRBU_AMunit/commandManagerUnit/dataWriterFromRAMUnit/ENA \
+sim:/sdTest/FIRBU_AMunit/commandManagerUnit/dataWriterFromRAMUnit/OUTPUT_SW \
+sim:/sdTest/FIRBU_AMunit/commandManagerUnit/dataWriterFromRAMUnit/RADDR \
+sim:/sdTest/FIRBU_AMunit/commandManagerUnit/dataWriterFromRAMUnit/RADDR_BEGIN \
+sim:/sdTest/FIRBU_AMunit/commandManagerUnit/dataWriterFromRAMUnit/RCLK \
+sim:/sdTest/FIRBU_AMunit/commandManagerUnit/dataWriterFromRAMUnit/RENA \
+sim:/sdTest/FIRBU_AMunit/commandManagerUnit/dataWriterFromRAMUnit/SD_DAT \
+sim:/sdTest/FIRBU_AMunit/commandManagerUnit/dataWriterFromRAMUnit/counter
+add wave  \
+sim:/sdTest/FIRBU_AMunit/sectorToWriteFATconstructorUnit/BUFREADY \
+sim:/sdTest/FIRBU_AMunit/sectorToWriteFATconstructorUnit/CLK \
+sim:/sdTest/FIRBU_AMunit/sectorToWriteFATconstructorUnit/ENA \
+sim:/sdTest/FIRBU_AMunit/sectorToWriteFATconstructorUnit/ENA_COUNTER \
+sim:/sdTest/FIRBU_AMunit/sectorToWriteFATconstructorUnit/INPUT_SW \
+sim:/sdTest/FIRBU_AMunit/sectorToWriteFATconstructorUnit/WADDR_SW \
+sim:/sdTest/FIRBU_AMunit/sectorToWriteFATconstructorUnit/WCLK_SW \
+sim:/sdTest/FIRBU_AMunit/sectorToWriteFATconstructorUnit/WENA_SW \
+sim:/sdTest/FIRBU_AMunit/sectorToWriteFATconstructorUnit/clusterNum \
+sim:/sdTest/FIRBU_AMunit/sectorToWriteFATconstructorUnit/counter

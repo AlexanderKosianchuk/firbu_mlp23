@@ -1,0 +1,272 @@
+`include "timescale.v"
+`include "defines.v"
+
+module digiBuffToSTWPump(
+CLK,
+ENA,
+RST,
+
+BLOCKS_DIGITIZED,
+RADDR_DBUFF,
+RCLK_DBUFF,
+Q_DBUFF,
+
+INPUT_SW_PUMP,
+WADDR_SW_PUMP,
+WCLK_SW_PUMP,
+WENA_SW_PUMP,
+
+BUFREADY_PUMP,
+BUFWAITING);
+
+input  wire        CLK, ENA, RST;
+
+input  wire [31:0] BLOCKS_DIGITIZED;
+output wire [11:0] RADDR_DBUFF;
+output wire	       RCLK_DBUFF;
+input  wire [7:0]  Q_DBUFF;
+
+output wire [7:0]  INPUT_SW_PUMP;
+output wire [9:0]  WADDR_SW_PUMP;
+output wire        WCLK_SW_PUMP;
+output wire        WENA_SW_PUMP;
+
+output wire [1:0]  BUFREADY_PUMP;
+input  wire [1:0]  BUFWAITING;
+
+reg         BUFREADY;
+reg  [1:0]  previousBUFWAITING;
+reg  [11:0] START_RADDR_DBUFF;
+wire [9:0]  START_WADDR_SW_PUMP;
+reg  [2:0]  curDBuffPassing;
+reg  [31:0] blocksPumped;
+
+reg  ENA_PUMPER;
+wire COMPLT_PUMPER;
+
+assign 
+
+sectorToWritePumper sectorToWritePumperUnit(
+CLK,
+ENA_PUMPER,
+
+START_RADDR_DBUFF,
+RADDR_DBUFF,
+RCLK_DBUFF,
+Q_DBUFF,
+
+INPUT_SW_PUMP,
+WADDR_SW_PUMP,
+WCLK_SW_PUMP,
+WENA_SW_PUMP,
+START_WADDR_SW_PUMP,
+
+BUFREADY,
+COMPLT_PUMPER);
+
+assign BUFREADY_PUMP = BUFREADY ? 2'b10 : 2'b01;
+
+
+//always @ (negedge CLK)
+//begin
+//	if(WADDR_DBUFF < 12'd512)
+//	begin
+//		curDBuffPassing <= 3'b000;
+//	end
+//	else if((WADDR_DBUFF >= 12'd512) && (WADDR_DBUFF < 12'd1024))
+//	begin
+//		curDBuffPassing <= 3'b001;
+//	end
+//	else if((WADDR_DBUFF >= 12'd1024) && (WADDR_DBUFF < 12'd1536))
+//	begin
+//		curDBuffPassing <= 3'b010;
+//	end
+//	else if((WADDR_DBUFF >= 12'd1536) && (WADDR_DBUFF < 12'd2048))
+//	begin
+//		curDBuffPassing <= 3'b011;
+//	end
+//	else if((WADDR_DBUFF >= 12'd2048) && (WADDR_DBUFF < 12'd2560))
+//	begin
+//		curDBuffPassing <= 3'b100;
+//	end
+//	else if((WADDR_DBUFF >= 12'd2560) && (WADDR_DBUFF < 12'd3072))
+//	begin
+//		curDBuffPassing <= 3'b101;
+//	end
+//	else if((WADDR_DBUFF >= 12'd3072) && (WADDR_DBUFF < 12'd3584))
+//	begin
+//		curDBuffPassing <= 3'b110;
+//	end
+//	else if((WADDR_DBUFF >= 12'd3584) && (WADDR_DBUFF < 12'd4096))
+//	begin
+//		curDBuffPassing <= 3'b111;
+//	end
+//end
+
+
+always @ (posedge RST or posedge COMPLT_PUMPER)
+begin
+	if(RST)
+	begin
+		BUFREADY     <= 1'b1;
+		blocksPumped <= 32'd0;
+		START_RADDR_DBUFF <= 12'd0;
+	end
+	else
+	begin
+		BUFREADY     <= BUFREADY    + 1'b1;
+		blocksPumped <= blocksPumped + 32'd1;
+		START_RADDR_DBUFF <= START_RADDR_DBUFF + 12'd512;
+	end
+end
+
+localparam 
+init                  = 1,
+waitFirstDBuff        = 2,
+pumpFirstDBuff        = 3,
+waitBuffWaitingChange = 4,
+waitNextDBuffReady    = 5,
+pumpNextDBuff         = 6;
+
+
+reg [6:0] state/* synthesis syn_encoding = "safe, one-hot" */;
+reg [6:0] nextState/* synthesis syn_encoding = "safe, one-hot" */;
+
+
+always @ (negedge ENA or posedge CLK)
+begin
+	if(!ENA)
+	begin
+		state <= init;
+	end
+	else
+	begin
+		state <= nextState;
+	end
+end
+
+always @ (ENA or state or BUFWAITING or BLOCKS_DIGITIZED or COMPLT_PUMPER)
+begin
+	if(!ENA)
+	begin
+		ENA_PUMPER <= 1'b0;
+		previousBUFWAITING <= BUFWAITING;
+		nextState   <= init;
+	end
+	else
+	begin
+	
+case(state)
+//====================
+init:
+begin
+ENA_PUMPER  <= 1'b0;
+previousBUFWAITING <= BUFWAITING;
+nextState   <= waitFirstDBuff;
+end
+
+//====================
+waitFirstDBuff:
+begin
+	if(BLOCKS_DIGITIZED <= blocksPumped)
+	begin
+		ENA_PUMPER <= 1'b0;
+		nextState <= waitFirstDBuff;
+	end
+	else if (BLOCKS_DIGITIZED > blocksPumped)
+	begin
+		ENA_PUMPER <= 1'b0;
+		nextState <= pumpFirstDBuff;
+	end
+	else
+	begin
+		ENA_PUMPER <= 1'b0;
+		nextState <= waitFirstDBuff;
+	end
+end
+//====================
+pumpFirstDBuff:
+begin
+	if(!COMPLT_PUMPER)
+	begin
+		ENA_PUMPER <= 1'b1;
+		previousBUFWAITING <= BUFWAITING;
+		nextState  <= pumpFirstDBuff;
+	end
+	else if (COMPLT_PUMPER)
+	begin
+		ENA_PUMPER  <= 1'b1;
+		nextState   <= waitBuffWaitingChange;
+	end
+	else
+	begin
+		ENA_PUMPER <= 1'b1;
+		nextState <= pumpFirstDBuff;
+	end
+end
+//====================
+waitBuffWaitingChange:
+begin
+	if(previousBUFWAITING == BUFWAITING)
+	begin
+		ENA_PUMPER <= 1'b0;
+		nextState  <= waitBuffWaitingChange;
+	end
+	else if (previousBUFWAITING != BUFWAITING)
+	begin
+		ENA_PUMPER  <= 1'b0;
+		nextState   <= waitNextDBuffReady;
+	end
+	else
+	begin
+		ENA_PUMPER <= 1'b0;
+		nextState  <= waitBuffWaitingChange;
+	end
+end
+//====================
+waitNextDBuffReady:
+begin
+	if(BLOCKS_DIGITIZED <= blocksPumped)
+	begin
+		ENA_PUMPER <= 1'b0;
+		nextState <= waitNextDBuffReady;
+	end
+	else if (BLOCKS_DIGITIZED > blocksPumped)
+	begin
+		ENA_PUMPER <= 1'b0;
+		nextState <= pumpNextDBuff;
+	end
+	else
+	begin
+		ENA_PUMPER <= 1'b0;
+		nextState <= waitNextDBuffReady;
+	end
+end
+//====================
+pumpNextDBuff:
+begin
+	if(!COMPLT_PUMPER)
+	begin
+		ENA_PUMPER <= 1'b1;
+		previousBUFWAITING <= BUFWAITING;
+		nextState  <= pumpNextDBuff;
+	end
+	else if (COMPLT_PUMPER)
+	begin
+		ENA_PUMPER  <= 1'b1;
+		nextState   <= waitBuffWaitingChange;
+	end
+	else
+	begin
+		ENA_PUMPER <= 1'b1;
+		nextState <= pumpNextDBuff;
+	end
+end
+//====================
+endcase
+	
+	end
+end
+
+
+endmodule

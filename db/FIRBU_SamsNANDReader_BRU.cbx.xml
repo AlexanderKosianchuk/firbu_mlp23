@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="FIRBU_SamsNANDReader_BRU">
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|exNANDMain:exNANDMainUnit|extNANDcmdWriter:extNANDcmdWriterUnit|exNANDcounterCmdWriter:counterCmdTrancfrClockUnit|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_76i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_mux:mux" CBX_FILE_NAME="mux_mrc.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:\adv_point_3_and_more:advance_pointer_counter" CBX_FILE_NAME="cntr_4fi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|commandManager:commandManagerUnit|blockCounter:transfrBlockCounter|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_k7i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|commandManager:commandManagerUnit|registers:cardRegisters|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_aah1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|exNANDMain:exNANDMainUnit|extNANDpll:pllUnit|altpll:altpll_component" CBX_FILE_NAME="extNANDpll_altpll.v"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|sectorToWrite:sectorToWriteUnit|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_t8n1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:read_pointer_counter" CBX_FILE_NAME="cntr_f8j.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|exNANDMain:exNANDMainUnit|exNANDcounterCmdWriter:counterMuteUnit|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_76i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|exNANDMain:exNANDMainUnit|extNANDdataReader:extNANDdataReaderUnit|sectorToWriteAddrCounter:addCounterUnit|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_m7i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|globalMemRead_ROWCounter:globalMemRead_ROWCounterUnit|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_m7i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|pllSdClocking:SDTiming|altpll:altpll_component" CBX_FILE_NAME="pllSdClocking_altpll.v"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|sectorStoreReading:sectorStoreReadingUnit|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_s5r1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram" CBX_FILE_NAME="altsyncram_t024.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_advance_pointer_counter" CBX_FILE_NAME="cntr_9fi.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|commandManager:commandManagerUnit|blockCounter:addressCounter|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_k7i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|commandManager:commandManagerUnit|acmdCounter:acmdCounterUnit|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_36i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|commandManager:commandManagerUnit|cmdRepeatCounter:cmdRepeatCounterUnit|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_26i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|commandManager:commandManagerUnit|dataWriter:dataWriterFromRAMUnit|sectorToWriteAddrCounterOut:sectorToWriteAddrCounterOutUnit|lpm_counter:LPM_COUNTER_component" CBX_FILE_NAME="cntr_j7i.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_decode:wdecoder" CBX_FILE_NAME="decode_4uf.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|FIRBU_SamsNANDReader_BRU|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_read_pointer_counter" CBX_FILE_NAME="cntr_p1j.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

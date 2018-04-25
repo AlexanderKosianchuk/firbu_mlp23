@@ -1,0 +1,64 @@
+Quartus II Archive log --	C:/Store/Altera/MLP-16/FIRBU_AM_USB/FIRBU_AM_USB_210313.qarlog
+
+Archive:	C:/Store/Altera/MLP-16/FIRBU_AM_USB/FIRBU_AM_USB_210313.qar
+Date:		Thu Mar 21 12:54:44 2013
+Quartus II 64-Bit		12.1 Build 177 11/07/2012 SJ Web Edition
+
+	=========== Files Selected: ===========
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/FIRBU_AM.qpf
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/FIRBU_AM.qsf
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/FIRBU_AM.sdc
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/FIRBU_AM.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/FIRBU_AM_assignment_defaults.qdf
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBBuff.qip
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBBuff.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBBuff_bb.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBTransceiver.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_peripheralController/peripheralController.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/acmdCounter.qip
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/acmdCounter.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/blockCounter.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/cmdRepeatCounter.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/commandManager.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataCRCStatus.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataReader.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataWriter.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataWriterOnAir.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/inputBusToSDDatBusPovider.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/muteCounter.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallelCmdlToSerialConverter.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallelToWideBusDataWriter.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallel_crc7.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/sectorToWriteAddrCounterOut.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serialRespToParallelConverter.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serial_crc16.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serial_crc7.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/transfrMultBlockWriteCounter.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/defines.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/fileSystemServer.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/incremental_db/compiled_partitions/FIRBU_AM.db_info
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/movingAverage.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/numCounter.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSdClocking.ppf
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSdClocking.qip
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSdClocking.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSlowFAT.ppf
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSlowFAT.qip
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSlowFAT.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/registers.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorBytePicker.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorStoreReading.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWrite.qip
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWrite.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteConstructor.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteDigitizer.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATconstructor.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATpage.qip
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATpage.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATupdater.v
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/stp1.stp
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/timescale.v
+	======= Total: 53 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

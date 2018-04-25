@@ -1,0 +1,268 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2012 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 32-bit
+# Version 12.0 Build 178 05/31/2012 SJ Web Edition
+# Date created = 11:07:52  August 08, 2012
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		FIRBU_AM_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone III"
+set_global_assignment -name DEVICE EP3C10E144C8
+set_global_assignment -name TOP_LEVEL_ENTITY FIRBU_AM
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 12.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:07:52  AUGUST 08, 2012"
+set_global_assignment -name LAST_QUARTUS_VERSION 12.1
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 144
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 8
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -entity FIRBUstateBased -section_id Top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -entity FIRBUstateBased -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -entity FIRBUstateBased -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -entity FIRBUstateBased -section_id Top
+set_global_assignment -name ENABLE_SIGNALTAP ON
+set_global_assignment -name USE_SIGNALTAP_FILE stp1.stp
+set_global_assignment -name CYCLONEIII_CONFIGURATION_SCHEME "ACTIVE SERIAL"
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name FORCE_CONFIGURATION_VCCIO ON
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to START_BUT
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to STOP_BUT
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to CHANGE_PATH_BUT
+set_global_assignment -name REMOVE_REDUNDANT_LOGIC_CELLS OFF
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION ON
+set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR "C:\\Altera\\12.1\\modelsim_ase" -section_id eda_simulation
+set_global_assignment -name VERILOG_FILE _sdCardFiles/commandManager.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/blockCounter.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/transfrMultBlockWriteCounter.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/sectorToWriteAddrCounterOut.v
+set_global_assignment -name VERILOG_FILE FIRBU_AM.v
+set_global_assignment -name VERILOG_FILE timescale.v
+set_global_assignment -name VERILOG_FILE sectorToWriteConstructor.v
+set_global_assignment -name VERILOG_FILE sectorToWrite.v
+set_global_assignment -name VERILOG_FILE sectorStoreReading.v
+set_global_assignment -name VERILOG_FILE sectorBytePicker.v
+set_global_assignment -name VERILOG_FILE registers.v
+set_global_assignment -name VERILOG_FILE pllSdClocking.v
+set_global_assignment -name VERILOG_FILE globalAddrWriteCounter.v
+set_global_assignment -name VERILOG_FILE defines.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/serialRespToParallelConverter.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/serial_crc16.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/serial_crc7.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/parallelToWideBusDataWriter.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/parallelCmdlToSerialConverter.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/parallel_crc7.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/muteCounter.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/inputBusToSDDatBusPovider.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/dataWriter.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/dataReader.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/dataCRCStatus.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/cmdRepeatCounter.v
+set_global_assignment -name VERILOG_FILE _sdCardFiles/acmdCounter.v
+set_global_assignment -name SIGNALTAP_FILE stp1.stp
+set_global_assignment -name VERILOG_FILE _sdCardFiles/dataWriterOnAir.v
+set_global_assignment -name QIP_FILE pllSdClocking.qip
+set_global_assignment -name VERILOG_FILE sectorToWriteDigitizer.v
+set_global_assignment -name QIP_FILE _sdCardFiles/acmdCounter.qip
+set_global_assignment -name QIP_FILE sectorToWriteFATpage.qip
+set_global_assignment -name VERILOG_FILE numCounter.v
+set_global_assignment -name VERILOG_FILE sectorToWriteFATconstructor.v
+set_global_assignment -name VERILOG_FILE movingAverage.v
+set_global_assignment -name QIP_FILE sectorToWrite.qip
+set_global_assignment -name VERILOG_FILE _peripheralController/peripheralController.v
+set_global_assignment -name VERILOG_FILE fileSystemServer.v
+set_global_assignment -name VERILOG_FILE sectorToWriteFATupdater.v
+set_global_assignment -name QIP_FILE USBBuff.qip
+set_global_assignment -name VERILOG_FILE USBTransceiver.v
+set_global_assignment -name QIP_FILE pllADC.qip
+set_global_assignment -name QIP_FILE digiBuff.qip
+set_global_assignment -name VERILOG_FILE digiBuffToSTWPump.v
+set_global_assignment -name VERILOG_FILE sectorToWritePumper.v
+set_global_assignment -name VERILOG_FILE USBdigitizer.v
+set_global_assignment -name VERILOG_FILE USBTransceiverPumper.v
+set_global_assignment -name CDF_FILE FIRBU_AM.cdf
+set_global_assignment -name CDF_FILE output_files/FIRBU_AM.cdf
+set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_INFO=805334528" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_POWER_UP_TRIGGER=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=1024" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ATTRIBUTE_MEM_MODE=OFF" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_FLOW_USE_GENERATED=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_BITS=11" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_BUFFER_FULL_STOP=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_CURRENT_RESOURCE_WIDTH=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=1024" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_IN_ENABLED=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_ENTITY=basic,1," -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIPELINE=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=0" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to D[0] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to D[1] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to D[2] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to D[3] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to D[4] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[5] -to D[5] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[6] -to D[6] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[7] -to D[7] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to D[0] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to D[1] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[2] -to D[2] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[3] -to D[3] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[4] -to D[4] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[5] -to D[5] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[6] -to D[6] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[7] -to D[7] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to EXT_USB_CLK -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[8] -to OE -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[9] -to RD -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[10] -to RXF -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[12] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[13] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[14] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[15] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[16] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[17] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[18] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[19] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[20] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|COMPLT" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[21] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|ENA" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[8] -to OE -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[9] -to RD -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[10] -to RXF -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[12] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[13] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[14] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[15] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[16] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[17] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[18] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[19] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|CHANNEL[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[20] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|COMPLT" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[21] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|ENA" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[11] -to "USBTransceiver:USBTransceiverUnit|TXE" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[11] -to "USBTransceiver:USBTransceiverUnit|TXE" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[22] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[23] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[24] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[25] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[26] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[27] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[28] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[29] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[30] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[31] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[32] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[33] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[34] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[35] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[36] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[37] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[38] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[39] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[40] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[41] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[42] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[43] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[44] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[45] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[46] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RCLK_USBBUFF" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[47] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[48] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[49] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[50] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[51] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[52] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[53] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[54] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[55] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[56] -to WR -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[22] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[23] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[24] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[25] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[26] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[27] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[28] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[29] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|Q_USBBUFF[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[30] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[31] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[32] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[33] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[34] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[35] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[36] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[37] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_START[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[38] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[39] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[40] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[41] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[42] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[43] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[44] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[45] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RADDR_USBBUFF[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[46] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|RCLK_USBBUFF" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[47] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[48] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[49] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[50] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[51] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[52] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[53] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[54] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[55] -to "USBTransceiver:USBTransceiverUnit|USBTransceiverPumper:USBTransceiverPumperUnit|counter[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[56] -to WR -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=57" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=57" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=195" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=19369" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=56914" -section_id auto_signaltap_0
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

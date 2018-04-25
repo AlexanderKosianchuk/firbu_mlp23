@@ -1,0 +1,157 @@
+`include "timescale.v"
+`include "defines.v"
+
+module sectorToWriteFATconstructor(
+CLK,
+ENA,
+
+WCLK_SW,
+WENA_SW,
+WADDR_SW,
+INPUT_SW,
+
+BUFREADY,
+BUFWRITTEN);
+
+input  wire CLK, ENA;
+
+output tri         WCLK_SW;
+output tri         WENA_SW;
+output reg  [9:0]  WADDR_SW;
+output reg  [31:0] INPUT_SW;
+
+output reg  [1:0]  BUFREADY;  
+input  wire [1:0]  BUFWRITTEN;
+
+assign WCLK_SW = ~CLK;
+assign WENA_SW = ENA;
+
+reg [31:0] clusterNum;
+reg ENA_COUNTER;
+reg [1:0] currentBufCalc;
+
+
+localparam glitchTime = 3;
+reg [3:0] muteCountersTimer;
+
+always @ (negedge ENA or posedge CLK)
+begin
+	if(!ENA)
+	begin
+		muteCountersTimer <= 0;
+		ENA_COUNTER <= 1'b0;
+	end
+	else
+	begin
+		if(muteCountersTimer < glitchTime)
+		begin
+			ENA_COUNTER <= 1'b0;
+			muteCountersTimer <= muteCountersTimer + 1;
+		end
+		else
+		begin
+			muteCountersTimer <= muteCountersTimer;
+			ENA_COUNTER <= 1'b1;
+		end
+	end
+end
+
+reg [7:0] counter;
+
+always @ (negedge CLK)
+begin
+  if(ENA_COUNTER)
+  begin
+	if(currentBufCalc == 2'b01)
+	begin
+		if((BUFWRITTEN == 2'b10) || (BUFWRITTEN == 2'b00))
+		begin
+			counter <= counter + 8'h01;
+		end
+	end
+	else if(currentBufCalc == 2'b10)
+	begin
+		if(BUFWRITTEN == 2'b01)
+		begin
+			counter <= counter + 8'h01;
+		end 
+	end
+	else
+	begin
+		counter <= counter + 8'h01;   
+	end
+  end
+  else
+  begin
+    counter <= 8'h00;
+  end          
+end
+
+always @ (posedge CLK)
+begin
+  if(ENA)
+  begin
+		INPUT_SW [31:28] <= clusterNum [27:24];
+		INPUT_SW [27:24] <= clusterNum [31:28];
+		INPUT_SW [23:20] <= clusterNum [19:16];
+		INPUT_SW [19:16] <= clusterNum [23:20];
+		INPUT_SW [15:12] <= clusterNum [11:8];
+		INPUT_SW [11:8]  <= clusterNum [15:12];
+		INPUT_SW [7:4]   <= clusterNum [3:0];
+		INPUT_SW [3:0]   <= clusterNum [7:4];
+  end
+  else
+  begin
+		INPUT_SW <= 32'h0;
+  end
+end
+
+always @ (negedge ENA_COUNTER or negedge CLK)
+begin
+  if(!ENA_COUNTER)
+  begin
+	clusterNum <= 32'h1;
+  end
+  else
+  begin
+	clusterNum <= clusterNum + 32'd1;
+  end
+end
+
+always @(posedge CLK)
+begin
+  if(ENA)
+  begin
+    if(counter == 8'd0)//more 511
+    begin
+		BUFREADY <= 2'b10;
+      WADDR_SW <= 10'h000;
+		currentBufCalc <= 2'b01;
+    end
+    else if((counter >= 8'd1) && (counter <= 8'd127))//more 511
+    begin
+		BUFREADY <= 2'b10;
+		WADDR_SW <= WADDR_SW + 10'h001;
+		currentBufCalc <= 2'b01;
+    end
+	 else if((counter >= 8'd128) && (counter <= 8'd255))//more 511
+    begin
+		BUFREADY <= 2'b01;
+		WADDR_SW <= WADDR_SW + 10'h001;
+		currentBufCalc <= 2'b10;
+    end
+    else
+    begin
+		BUFREADY <= 2'b00;
+      WADDR_SW <= 10'h000;
+    end
+  end
+  else
+  begin
+	 BUFREADY <= 2'b00;
+	 WADDR_SW <= 10'h000;
+  end
+end
+
+   
+endmodule

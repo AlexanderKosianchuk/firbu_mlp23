@@ -1,0 +1,16 @@
+Fitter Status : Successful - Fri Apr 12 13:24:29 2013
+Quartus II 64-Bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
+Revision Name : FIRBU_AM
+Top-level Entity Name : FIRBU_AM
+Family : Cyclone III
+Device : EP3C10E144C8
+Timing Models : Final
+Total logic elements : 6,593 / 10,320 ( 64 % )
+    Total combinational functions : 5,672 / 10,320 ( 55 % )
+    Dedicated logic registers : 2,874 / 10,320 ( 28 % )
+Total registers : 2874
+Total pins : 42 / 95 ( 44 % )
+Total virtual pins : 0
+Total memory bits : 338,944 / 423,936 ( 80 % )
+Embedded Multiplier 9-bit elements : 0 / 46 ( 0 % )
+Total PLLs : 2 / 2 ( 100 % )

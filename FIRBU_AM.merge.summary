@@ -1,0 +1,14 @@
+Partition Merge Status : Successful - Fri Mar 15 18:39:09 2013
+Quartus II 64-Bit Version : 12.1 Build 177 11/07/2012 SJ Web Edition
+Revision Name : FIRBU_AM
+Top-level Entity Name : FIRBU_AM
+Family : Cyclone III
+Total logic elements : 4,768
+    Total combinational functions : 3,925
+    Dedicated logic registers : 2,387
+Total registers : 2387
+Total pins : 40
+Total virtual pins : 0
+Total memory bits : 368,640
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 2

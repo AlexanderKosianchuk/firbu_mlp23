@@ -1,0 +1,162 @@
+`include "timescale.v"
+
+module parallelToWideBusDataWriter (
+CLK, 
+RST,
+ENA,
+COMPLT,
+INPUTDATA, 
+OUTPUTBUS);
+  
+parameter blockSize = 4095; // [1023:0](512bytes  through 4 lines)
+parameter CRCWidth = 15; //[15:0]
+parameter busWidth = 3; //[3:0]
+  
+input tri CLK, RST, ENA;
+input tri [blockSize:0] INPUTDATA;
+output reg [busWidth:0] OUTPUTBUS;
+output reg COMPLT;
+ 
+reg rstCRC;
+reg enaCRC;
+tri [CRCWidth:0] outCRC0;
+tri [CRCWidth:0] outCRC1;
+tri [CRCWidth:0] outCRC2;
+tri [CRCWidth:0] outCRC3;
+
+reg [busWidth:0] dataCRCLine;
+
+reg [11:0] i;
+reg [15:0] j;
+    
+always @ (posedge CLK)
+begin
+if(RST)
+begin
+	i <= 0;
+	j <= 0;
+end
+else
+begin
+	if(ENA)
+	begin
+		i <= i + 1;
+		if((i >= 2) && (i <= (blockSize + 1)))
+		begin
+		  j <= j + 4;
+		end
+	end
+	else
+	begin
+		i <= 0;
+		j <= 0;
+	end
+end
+
+end
+
+always @(negedge CLK)
+begin
+	if(RST)
+	begin
+		COMPLT <= 1'b0;
+		rstCRC <= 1'b1;
+		OUTPUTBUS <= {4{1'bz}};
+	end//if(rst)
+	else
+	begin
+		if(ENA)
+		begin
+			//start bit
+			if(i == 1)
+			begin	
+				rstCRC <= 1'b0;
+				
+				OUTPUTBUS[0] <= {4{1'b0}};
+				OUTPUTBUS[1] <= {4{1'b0}};
+				OUTPUTBUS[2] <= {4{1'b0}};
+				OUTPUTBUS[3] <= {4{1'b0}};
+			end
+			else if ((i >= 2) && (i <= (((blockSize + 1)/4) + 1)))
+			begin
+				enaCRC <= 1'b1;
+				
+				OUTPUTBUS[0] <= INPUTDATA[blockSize - j - 3];
+				OUTPUTBUS[1] <= INPUTDATA[blockSize - j - 2];
+				OUTPUTBUS[2] <= INPUTDATA[blockSize - j - 1];
+				OUTPUTBUS[3] <= INPUTDATA[blockSize - j - 0];
+				
+				dataCRCLine[0] <= INPUTDATA[blockSize - j - 3];
+				dataCRCLine[1] <= INPUTDATA[blockSize - j - 2];
+				dataCRCLine[2] <= INPUTDATA[blockSize - j - 1];
+				dataCRCLine[3] <= INPUTDATA[blockSize - j - 0];
+			end
+										
+			else if((i >= (((blockSize + 1)/4) + 2) && (i <= (((blockSize + 1)/4) + CRCWidth + 2))))
+			begin
+				enaCRC = 1'b0;
+				
+				OUTPUTBUS[0] <= outCRC0[((blockSize + 1)/4) + CRCWidth + 2 - i];
+				OUTPUTBUS[1] <= outCRC1[((blockSize + 1)/4) + CRCWidth + 2 - i];
+				OUTPUTBUS[2] <= outCRC2[((blockSize + 1)/4) + CRCWidth + 2 - i];
+				OUTPUTBUS[3] <= outCRC3[((blockSize + 1)/4) + CRCWidth + 2 - i];
+			end
+			//end bit
+			else if(i == (((blockSize + 1)/4) + CRCWidth + 3))
+			begin
+				$display ("DAT0 CRC %b, %h" ,outCRC0,outCRC0);
+				
+				OUTPUTBUS <= {4{1'b1}};
+			
+			end
+			else if(i >= (((blockSize + 1)/4) + CRCWidth + 4))
+			begin
+				COMPLT <= 1'b1;
+				OUTPUTBUS <= {4{1'bz}};
+				$display("%d OUTPUTBUS block transfer complete", $time);
+			end
+			else
+			begin
+				COMPLT <= 1'b0;
+				rstCRC <= 1'b1;
+				OUTPUTBUS <= {4{1'bz}};
+			end
+		end//if(enable)
+		else
+		begin
+			COMPLT <= 1'b0;
+			rstCRC <= 1'b1;
+			OUTPUTBUS <= {4{1'bz}};
+		end
+	end//else
+end//always
+
+serial_CRC16 line0(	
+CLK,
+rstCRC,
+enaCRC,
+dataCRCLine[0],
+outCRC0);
+
+serial_CRC16 line1(	
+CLK,
+rstCRC,
+enaCRC,
+dataCRCLine[1],
+outCRC1);
+
+serial_CRC16 line2(	
+CLK,
+rstCRC,
+enaCRC,
+dataCRCLine[2],
+outCRC2);
+
+serial_CRC16 line3(	
+CLK,
+rstCRC,
+enaCRC,
+dataCRCLine[3],
+outCRC3);
+  
+endmodule

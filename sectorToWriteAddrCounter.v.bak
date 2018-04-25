@@ -1,0 +1,26 @@
+`include "timescale.v"
+`include "defines.v"
+
+module sectorToWriteAddrCounter(
+CLK,
+ENA,
+INIT_NUM,
+NUM);
+
+input CLK, ENA;
+input wire [31:0] INIT_NUM;
+output reg [31:0] NUM;
+
+always @ (negedge ENA or posedge CLK)
+begin
+	if(ENA)
+	begin
+		NUM <= NUM + 1'b1;
+	end
+	else
+	begin
+		NUM <= INIT_NUM;
+	end
+end
+
+endmodule

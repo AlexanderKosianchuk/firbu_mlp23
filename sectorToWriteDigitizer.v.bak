@@ -1,0 +1,55 @@
+`include "timescale.v"
+`include "defines.v"
+
+module sectorToWriteDigitizer(
+CLK,
+RST,
+ENA,
+
+DATA_DBUFF,
+WADDR_DBUFF,
+WCLK_DBUFF,
+WREN_DBUFF,
+
+INPUT);
+
+input  wire CLK, RST, ENA;
+
+output reg [7:0]  DATA_DBUFF;
+output reg [14:0] WADDR_DBUFF;
+output wire	      WCLK_DBUFF;
+output wire	      WREN_DBUFF;
+
+input  wire [7:0] INPUT;
+
+assign WCLK_DBUFF = ~CLK;
+assign WREN_DBUFF = ENA;
+
+
+always @ (negedge ENA or negedge WCLK_DBUFF)
+begin
+		if(!ENA)
+		begin
+		  WADDR_DBUFF <= 15'd0;
+			
+		end
+		else
+		begin
+		  WADDR_DBUFF <= WADDR_DBUFF + 15'd1;			
+		end          
+end
+
+always @ (posedge CLK)
+begin
+  if(ENA)
+  begin
+    DATA_DBUFF [3:0] <= INPUT [7:4];
+    DATA_DBUFF [7:4] <= INPUT [3:0];
+  end
+  else
+  begin
+    DATA_DBUFF <= 8'hzz;
+  end
+end
+   
+endmodule

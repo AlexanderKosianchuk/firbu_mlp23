@@ -1,0 +1,25 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\StoreDev\Altera\_Group\FIRBU\FIRBU_AM\simulation\modelsim
+vFIRBU_AM
+Z1 !s100 B@@aaehMi<2U]FM2;3V7j2
+IOlhQADKJUnohlQ;1<IIUE1
+Z2 Vm^8GQ_ekM0J8Y1ZncUCij1
+Z3 dC:\StoreDev\Altera\_Group\FIRBU\FIRBU_AM\simulation\modelsim
+w1349079789
+8FIRBU_AM_8_1200mv_85c_slow.vo
+FFIRBU_AM_8_1200mv_85c_slow.vo
+L0 31
+Z4 OV;L;10.0d;49
+r1
+!s85 0
+31
+!s108 1349079816.929000
+!s107 FIRBU_AM_8_1200mv_85c_slow.vo|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+.|FIRBU_AM_8_1200mv_85c_slow.vo|
+!s101 -O0
+o-vlog01compat -work work -O0
+!s92 -vlog01compat -work work +incdir+. -O0
+Z5 n@f@i@r@b@u_@a@m

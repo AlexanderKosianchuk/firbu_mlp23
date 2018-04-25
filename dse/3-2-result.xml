@@ -1,0 +1,120 @@
+
+<RESULTS project="FIRBU_AM" revname="__dse_temp_rev" isbest="0" arcname="" wasCompiled="1" name="3-fast-1200mV-0C">
+ <COPYRIGHT>Copyright (C) 2002 Altera Corporation. All rights reserved.
+                This information and code is highly confidential and proprietary
+                information and code of Altera and is being provided in accordance
+                with and subject to the protections of a non-disclosure agreement
+                which governs its use and disclosure.  Altera products and services
+                are protected under numerous U.S. and foreign patents, maskwork rights
+                copyrights and other intellectual property laws.  Altera assumes no
+                responsibility or liability arising out of the application or use
+                of this information and code. This notice must be retained and
+                reprinted on any copies of this information and code that are
+                permitted to be made.</COPYRIGHT>
+ <SETTING name="PLACEMENT_EFFORT_MULTIPLIER">1.5</SETTING>
+ <SETTING name="PHYSICAL_SYNTHESIS_REGISTER_RETIMING">OFF</SETTING>
+ <SETTING name="ROUTER_TIMING_OPTIMIZATION_LEVEL">MAXIMUM</SETTING>
+ <SETTING name="PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION">OFF</SETTING>
+ <SETTING name="PHYSICAL_SYNTHESIS_COMBO_LOGIC">OFF</SETTING>
+ <SETTING name="PRE_MAPPING_RESYNTHESIS">OFF</SETTING>
+ <SETTING name="ENABLE_BENEFICIAL_SKEW_OPTIMIZATION">OFF</SETTING>
+ <SETTING name="FITTER_EFFORT">STANDARD FIT</SETTING>
+ <SETTING name="PHYSICAL_SYNTHESIS_EFFORT">NORMAL</SETTING>
+ <RESULT name="Clock Hold: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Worst-case Slack">0.187 ns</RESULT>
+ <RESULT name="Clock Hold: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Worst-case Slack">-0.163 ns</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Restricted Fmax">129.22 MHz</RESULT>
+ <RESULT name="Clock Setup: 'altera_reserved_tck': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'CLK': Actual Time">4.412 ns</RESULT>
+ <RESULT name="Elapsed Time: Total">00:02:39</RESULT>
+ <RESULT name="Clock Removal: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Elapsed Time: Assembler">00:00:03</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Actual Time">7.739 ns</RESULT>
+ <RESULT name="Elapsed Time: TimeQuest Timing Analyzer">00:00:17</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Removal: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Worst-case Slack">0.295 ns</RESULT>
+ <RESULT name="Worst-case Slack">-0.163 ns (Clock Hold: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;')</RESULT>
+ <RESULT name="Total logic elements">4011</RESULT>
+ <RESULT name="Clock Recovery: 'altera_reserved_tck': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Fmax">277.93 MHz</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Actual Time">7.802 ns</RESULT>
+ <RESULT name="Clock Recovery: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Hold: 'altera_reserved_tck': Worst-case Slack">0.184 ns</RESULT>
+ <RESULT name="Clock Recovery: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Elapsed Time: Fitter">00:01:31</RESULT>
+ <RESULT name="Total Keeper TNS">-6.247 ns</RESULT>
+ <RESULT name="Clock Setup: 'CLK': Fmax">226.65 MHz</RESULT>
+ <RESULT name="Clock Hold: 'CLK': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'altera_reserved_tck': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Hold: 'CLK': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Recovery: Total Keeper TNS">0.0 ns</RESULT>
+ <RESULT name="Clock Removal: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Removal: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Hold: 'CLK': Worst-case Slack">0.131 ns</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[2&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Removal: 'altera_reserved_tck': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Recovery: 'altera_reserved_tck': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Removal: Total Keeper TNS">0.0 ns</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Worst-case Slack">48.566 ns</RESULT>
+ <RESULT name="Total block memory bits">164032</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[2&#93;': Restricted Fmax">223.11 MHz</RESULT>
+ <RESULT name="Clock Setup: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Worst-case Slack">24998.201 ns</RESULT>
+ <RESULT name="Clock Hold: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'CLK': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[2&#93;': Worst-case Slack">622.759 ns</RESULT>
+ <RESULT name="Clock Hold: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Per-clock Keeper TNS">-6.247 ns</RESULT>
+ <RESULT name="Clock Hold: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Recovery: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Hold: 'SDTiming|altpll_component|auto_generated|pll1|clk[2&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'altera_reserved_tck': Restricted Fmax">204.0 MHz</RESULT>
+ <RESULT name="Clock Hold: 'SDTiming|altpll_component|auto_generated|pll1|clk[2&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'CLK': Restricted Fmax">226.65 MHz</RESULT>
+ <RESULT name="Clock Hold: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Worst-case Slack">0.008 ns</RESULT>
+ <RESULT name="Clock Recovery: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Worst-case Slack">24998.828 ns</RESULT>
+ <RESULT name="Clock Recovery: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Worst-case Slack">109.249 ns</RESULT>
+ <RESULT name="Timing Model">Fast 1200mV 0C</RESULT>
+ <RESULT name="Elapsed Time: EDA Netlist Writer">00:00:11</RESULT>
+ <RESULT name="Clock Hold: 'SDTiming|altpll_component|auto_generated|pll1|clk[2&#93;': Worst-case Slack">0.187 ns</RESULT>
+ <RESULT name="Clock Removal: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'altera_reserved_tck': Actual Time">4.902 ns</RESULT>
+ <RESULT name="Clock Setup: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Restricted Fmax">277.93 MHz</RESULT>
+ <RESULT name="Clock Removal: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Elapsed Time: Analysis &amp; Synthesis">00:00:40</RESULT>
+ <RESULT name="Clock Setup: 'altera_reserved_tck': Fmax">204.0 MHz</RESULT>
+ <RESULT name="Clock Setup: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Actual Time">3.598 ns</RESULT>
+ <RESULT name="Clock Setup: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Hold: 'altera_reserved_tck': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Removal: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Worst-case Slack">0.091 ns</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Fmax">128.17 MHz</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Restricted Fmax">128.17 MHz</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Fmax">129.22 MHz</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[2&#93;': Fmax">223.11 MHz</RESULT>
+ <RESULT name="Clock Recovery: 'altera_reserved_tck': Worst-case Slack">49.506 ns</RESULT>
+ <RESULT name="Clock Hold: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Hold: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Per-clock Edge TNS">-31.533 ns</RESULT>
+ <RESULT name="Clock Setup: Total Keeper TNS">0.0 ns</RESULT>
+ <RESULT name="Clock Removal: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Hold: Total Keeper TNS">-6.247 ns</RESULT>
+ <RESULT name="All Failing Paths">&gt;0</RESULT>
+ <RESULT name="Total Thermal Power Dissipation">unknown</RESULT>
+ <RESULT name="Clock Setup: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'altera_reserved_tck': Worst-case Slack">47.549 ns</RESULT>
+ <RESULT name="Clock Removal: 'altera_reserved_tck': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[2&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Removal: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Worst-case Slack">25000.800 ns</RESULT>
+ <RESULT name="Clock Hold: 'altera_reserved_tck': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Period: Geometric Mean">5.25 ns</RESULT>
+ <RESULT name="Clock Recovery: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Worst-case Slack">4.223 ns</RESULT>
+ <RESULT name="Clock Setup: 'CLK': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Recovery: 'pllSlowFATUnit|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Recovery: 'SDTiming|altpll_component|auto_generated|pll1|clk[1&#93;': Per-clock Keeper TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Hold: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Per-clock Edge TNS">0.000 ns</RESULT>
+ <RESULT name="Clock Removal: 'altera_reserved_tck': Worst-case Slack">0.505 ns</RESULT>
+ <RESULT name="Clock Setup: 'SDTiming|altpll_component|auto_generated|pll1|clk[2&#93;': Actual Time">4.482 ns</RESULT>
+ <RESULT name="Clock Recovery: 'SDTiming|altpll_component|auto_generated|pll1|clk[0&#93;': Worst-case Slack">9998.085 ns</RESULT>
+ <RESULT name="Clock Setup: 'CLK': Worst-case Slack">22.794 ns</RESULT>
+</RESULTS>
+

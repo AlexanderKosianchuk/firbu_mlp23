@@ -1,0 +1,93 @@
+`include "timescale.v"
+
+module parallelCmdToSerialConverter (
+CLK, 
+RST,
+ENA,
+COMPLT,
+PARALLELCMD, 
+SERIALCMD);
+  
+parameter parallelCmdWidth = 37;
+parameter parallelCrcWidth = 6;
+parameter totalCC = 47; //  0 + 2 + 37 + 6 + 1(end bit)
+  
+input tri CLK, RST, ENA;
+output reg COMPLT;
+input tri [parallelCmdWidth:0] PARALLELCMD;
+output tri SERIALCMD;
+
+tri [parallelCmdWidth + 2 : 0] cmdForCrc;
+tri [parallelCrcWidth:0] PARALLELCRC;
+reg cmd;
+tri compltCRC;
+reg enaCRC;
+reg [totalCC : 0] shiftReg;
+integer i;
+  
+assign SERIALCMD = ENA ? (COMPLT ? 1'bz : cmd) : 1'bz;
+assign cmdForCrc [parallelCmdWidth + 2 : parallelCmdWidth + 1] = 2'b01;
+assign cmdForCrc [parallelCmdWidth : 0] = PARALLELCMD;
+   
+always @(posedge CLK)
+begin
+
+if(RST)
+begin
+	i <= 0;
+	enaCRC <= 1'b0;
+	cmd <= 1'bz;
+	COMPLT <= 1'b0;
+end//if(rst)
+else
+begin
+
+	if(ENA)
+	begin
+		if(i <= totalCC)
+			begin
+			
+				if(i == 5) 
+				begin
+					enaCRC <= 1'b1;
+				end			
+				
+				shiftReg [totalCC : totalCC - 1] = 2'b01; // start bits
+				shiftReg [totalCC - 2  : parallelCrcWidth + 2] = PARALLELCMD;
+				shiftReg [parallelCrcWidth + 1 : 1] = PARALLELCRC;
+				shiftReg [0] = 1; // end sdCmd Bit
+				shiftReg = shiftReg << i;
+				cmd = shiftReg[totalCC];
+				i = i + 1;
+			end
+			else
+			begin
+				enaCRC <= 1'b0;
+				cmd <= 1'bz;
+				COMPLT <= 1'b1;
+				$display("%d Cmd convertion complete", $time);
+				$display("01%b%b1",PARALLELCMD, PARALLELCRC);
+			end
+	end
+	
+	else
+	begin
+		i <= 0;
+		enaCRC <= 1'b0;
+		cmd <= 1'bz;
+		COMPLT <= 1'b0;
+	end
+	
+end
+
+end//always
+
+parallel_CRC7 crc7cmdProtect(
+CLK,
+RST,
+enaCRC,
+compltCRC,
+cmdForCrc,
+PARALLELCRC);
+  
+endmodule

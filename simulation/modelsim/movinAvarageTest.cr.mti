@@ -1,0 +1,27 @@
+C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/movingEvarageTest.v {1 {vlog -work work C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/movingEvarageTest.v
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module movingAverageTest
+
+Top level modules:
+	movingAverageTest
+
+} {} {}} C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBBuff.v {1 {vlog -work work -v C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/altera_mf.v C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBBuff.v
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module USBBuff
+-- Scanning library file 'C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/altera_mf.v'
+-- Compiling module altsyncram
+-- Scanning library file 'C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/altera_mf.v'
+-- Compiling module ALTERA_MF_MEMORY_INITIALIZATION
+-- Compiling module ALTERA_DEVICE_FAMILIES
+
+Top level modules:
+	USBBuff
+
+} {} {}} C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteDigitizer.v {1 {vlog -work work C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteDigitizer.v
+Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+-- Compiling module sectorToWriteDigitizer
+
+Top level modules:
+	sectorToWriteDigitizer
+
+} {} {}}

@@ -1,0 +1,82 @@
+`include "timescale.v"
+
+module movingAverageTest();
+  
+reg CLK;
+reg ENA;
+
+wire WCLK_SW;
+wire WENA_SW;
+wire [11:0] WADDR_SW;
+wire [7:0]  INPUT_SW;
+
+wire [1:0]  BUFREADY;
+reg  [7:0]  INPUT_ADC1;
+reg  [7:0]  INPUT_ADC2;
+
+wire CLK_ADC1;
+wire CLK_ADC2;
+
+wire [7:0] DATA_IN_USBBUFF;
+wire [9:0] RADDR_USBBUFF;
+wire       RCLK_USBBUFF;
+wire [9:0] WADDR_USBBUFF;
+wire       WCLK_USBBUFF;
+wire       WENA_USBBUFF;
+wire [7:0] Q_USBBUFF;
+
+initial
+begin
+CLK = 1'b1;
+forever #50 CLK = ~CLK; 
+end
+
+initial
+begin
+ENA = 1'b0;
+# 250  ENA = ~ENA;
+end
+
+always @(negedge CLK_ADC1)
+begin
+  INPUT_ADC1 = $random; 
+end
+
+always @(negedge CLK_ADC2)
+begin
+  INPUT_ADC2 = $random; 
+end
+
+
+movingAverage movingAverageUnit(
+CLK,
+ENA,
+
+WCLK_SW,
+WENA_SW,
+WADDR_SW,
+INPUT_SW,
+
+BUFREADY,
+INPUT_ADC1,
+INPUT_ADC2,
+
+CLK_ADC1,
+CLK_ADC2,
+
+DATA_IN_USBBUFF,
+WADDR_USBBUFF,
+WCLK_USBBUFF,
+WENA_USBBUFF);
+
+USBBuff USBBuffUnit(
+DATA_IN_USBBUFF,
+!ENA,
+RADDR_USBBUFF,
+RCLK_USBBUFF,
+WADDR_USBBUFF,
+WCLK_USBBUFF,
+WENA_USBBUFF,
+	q);
+
+endmodule

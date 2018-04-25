@@ -1,0 +1,119 @@
+`include "timescale.v"
+`include "defines.v"
+
+module extNANDdataReader(
+CLK,
+ENA,
+
+WCLK_SW,
+WENA_SW,
+WADDR_SW,
+INPUT_SW,
+
+RE1,
+IO,
+COMPLT);
+
+input  wire CLK, ENA;
+
+output wire        WCLK_SW;
+output reg         WENA_SW;
+output reg  [10:0] WADDR_SW;
+output reg  [7:0]  INPUT_SW;
+
+output wire        RE1;
+input  tri  [7:0]  IO;
+output reg         COMPLT;
+
+assign WCLK_SW = CLK;
+assign RE1 = ENA ? (COMPLT ? 1'b1 : CLK) : 1'b1;
+
+wire [15:0] counter;
+
+sectorToWriteAddrCounter addCounterUnit(
+~ENA,
+~CLK,
+counter);
+
+always @(CLK)
+begin
+  if(ENA)
+  begin
+    if(!COMPLT)
+    begin
+      WENA_SW <= 1'b1;
+    end
+    else
+    begin
+      WENA_SW <= 1'b0;
+    end
+  end
+  else
+  begin
+    WENA_SW <= 1'b0;
+  end
+end
+
+always @ (posedge CLK)
+begin
+  if(ENA)
+  begin
+    //INPUT_SW <= IO;
+    if(counter <= 16'd1)
+    begin
+      INPUT_SW [7:0] <= 8'hff;
+    end
+    else if((counter >= 16'd2) && (counter <= 16'd2048))
+    begin
+      if(counter[0])
+      begin
+        INPUT_SW [3:0] <= counter[7:4];
+        INPUT_SW [7:4] <= counter[3:0];
+      end
+      else
+      begin
+        INPUT_SW [3:0] <= counter[15:12];
+        INPUT_SW [7:4] <= counter[11:8];
+      end
+    end  
+  end
+  else
+  begin
+    INPUT_SW <= 8'hzz;
+  end
+end
+
+always @(posedge CLK)
+begin
+  if(ENA)
+  begin
+    if(counter <= 16'd1)
+    begin
+      WADDR_SW <= 11'h000;
+      COMPLT <= 1'b0;
+    end
+    `ifdef shortNANDDataReading
+    else if((counter >= 16'd2) && (counter <= 16'd20))
+    `else
+    else if((counter >= 16'd2) && (counter <= 16'd2048))
+    `endif
+    begin
+      WADDR_SW <= WADDR_SW + 11'h001;
+      COMPLT <= 1'b0;
+    end
+    else
+    begin
+      WADDR_SW <= 11'h000;
+      COMPLT <= 1'b1;
+    end
+  end
+  else
+  begin
+    WADDR_SW <= 11'h000;
+    COMPLT <= 1'b0;
+  end
+end
+
+
+   
+endmodule

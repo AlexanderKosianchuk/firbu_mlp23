@@ -1,0 +1,251 @@
+# Reading C:/Altera/12.1/modelsim_ase/tcl/vsim/pref.tcl 
+# do FIRBU_AM_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\Altera\12.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\Altera\12.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/blockCounter.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module blockCounter
+# 
+# Top level modules:
+# 	blockCounter
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/transfrMultBlockWriteCounter.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module transfrMultBlockWriteCounter
+# 
+# Top level modules:
+# 	transfrMultBlockWriteCounter
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/sectorToWriteAddrCounterOut.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module sectorToWriteAddrCounterOut
+# 
+# Top level modules:
+# 	sectorToWriteAddrCounterOut
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/timescale.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWrite.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module sectorToWrite
+# 
+# Top level modules:
+# 	sectorToWrite
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorStoreReading.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module sectorStoreReading
+# 
+# Top level modules:
+# 	sectorStoreReading
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSdClocking.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module pllSdClocking
+# 
+# Top level modules:
+# 	pllSdClocking
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/defines.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataReader.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module dataReader
+# 
+# Top level modules:
+# 	dataReader
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/cmdRepeatCounter.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module cmdRepeatCounter
+# 
+# Top level modules:
+# 	cmdRepeatCounter
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/acmdCounter.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module acmdCounter
+# 
+# Top level modules:
+# 	acmdCounter
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATpage.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module sectorToWriteFATpage
+# 
+# Top level modules:
+# 	sectorToWriteFATpage
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/movingAverage.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module movingAverage
+# 
+# Top level modules:
+# 	movingAverage
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/fileSystemServer.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module fileSystemServer
+# 
+# Top level modules:
+# 	fileSystemServer
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBBuff.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module USBBuff
+# 
+# Top level modules:
+# 	USBBuff
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBTransceiver.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module USBTransceiver
+# 
+# Top level modules:
+# 	USBTransceiver
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllADC.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module pllADC
+# 
+# Top level modules:
+# 	pllADC
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/digiBuff.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module digiBuff
+# 
+# Top level modules:
+# 	digiBuff
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWritePumper.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module sectorToWritePumper
+# 
+# Top level modules:
+# 	sectorToWritePumper
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBdigitizer.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module USBdigitizer
+# 
+# Top level modules:
+# 	USBdigitizer
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBTransceiverPumper.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module USBTransceiverPumper
+# 
+# Top level modules:
+# 	USBTransceiverPumper
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/db {C:/Store/Altera/MLP-16/FIRBU_AM_USB/db/pllsdclocking_altpll.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module pllSdClocking_altpll
+# 
+# Top level modules:
+# 	pllSdClocking_altpll
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/db {C:/Store/Altera/MLP-16/FIRBU_AM_USB/db/plladc_altpll.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module pllADC_altpll
+# 
+# Top level modules:
+# 	pllADC_altpll
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/commandManager.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module commandManager
+# 
+# Top level modules:
+# 	commandManager
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/FIRBU_AM.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module FIRBU_AM
+# 
+# Top level modules:
+# 	FIRBU_AM
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorBytePicker.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module sectorBytePicker
+# 
+# Top level modules:
+# 	sectorBytePicker
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serialRespToParallelConverter.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module serialRespToParallelConverter
+# 
+# Top level modules:
+# 	serialRespToParallelConverter
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serial_crc16.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module serial_CRC16
+# 
+# Top level modules:
+# 	serial_CRC16
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serial_crc7.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module serial_CRC7
+# 
+# Top level modules:
+# 	serial_CRC7
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallelToWideBusDataWriter.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module parallelToWideBusDataWriter
+# 
+# Top level modules:
+# 	parallelToWideBusDataWriter
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallelCmdlToSerialConverter.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module parallelCmdToSerialConverter
+# 
+# Top level modules:
+# 	parallelCmdToSerialConverter
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallel_crc7.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module parallel_CRC7
+# 
+# Top level modules:
+# 	parallel_CRC7
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/muteCounter.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module muteCounter
+# 
+# Top level modules:
+# 	muteCounter
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataWriter.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module dataWriter
+# 
+# Top level modules:
+# 	dataWriter
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataCRCStatus.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module dataCRCStatus
+# 
+# Top level modules:
+# 	dataCRCStatus
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataWriterOnAir.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module dataWriterOnAir
+# 
+# Top level modules:
+# 	dataWriterOnAir
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteDigitizer.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module sectorToWriteDigitizer
+# 
+# Top level modules:
+# 	sectorToWriteDigitizer
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATconstructor.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module sectorToWriteFATconstructor
+# 
+# Top level modules:
+# 	sectorToWriteFATconstructor
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/_peripheralController {C:/Store/Altera/MLP-16/FIRBU_AM_USB/_peripheralController/peripheralController.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module peripheralController
+# 
+# Top level modules:
+# 	peripheralController
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATupdater.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module sectorToWriteFATupdater
+# 
+# Top level modules:
+# 	sectorToWriteFATupdater
+# vlog -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB {C:/Store/Altera/MLP-16/FIRBU_AM_USB/digiBuffToSTWPump.v}
+# Model Technology ModelSim ALTERA vlog 10.1b Compiler 2012.04 Apr 27 2012
+# -- Compiling module digiBuffToSTWPump
+# 
+# Top level modules:
+# 	digiBuffToSTWPump
+# 

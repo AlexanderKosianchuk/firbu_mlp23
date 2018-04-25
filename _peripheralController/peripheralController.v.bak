@@ -1,0 +1,659 @@
+`include "timescale.v"
+`include "defines.v"
+
+module peripheralController(
+FAST_CLK,
+USB_CLK,
+ENA,
+BUT,
+REC,
+MODE,
+LED,
+
+D_OUT,
+D_IN,
+WR,
+RXF,
+TXE,
+RD,
+OE);
+
+input             FAST_CLK, USB_CLK, ENA, BUT;
+output wire       REC;
+input       [1:0] MODE;
+output reg        LED;
+output tri  [7:0] D_OUT;
+input  wire [7:0] D_IN;
+output reg        WR;
+input  wire       RXF, TXE;
+output reg        RD;
+output reg        OE;
+
+reg USB_REC_ENA;
+reg USB_REC;
+reg BUT_REC;
+assign REC = USB_REC_ENA ? USB_REC : BUT_REC;
+
+reg [7:0] dataToRead;
+reg [7:0] dataToWrite;
+assign D_OUT = WR ? {8{1'bz}} : dataToWrite;
+
+localparam	requestByte  = 8'b0110_1100; 
+localparam	confirmByte  = 8'b0110_1101; 
+localparam	startRecByte = 8'b0111_0011; 
+
+localparam 
+waitUSB         = 1,
+pullDownOE1     = 2,
+pullDownRD1     = 3,
+checkMess1      = 6,
+waitTXE         = 7,
+prepareMess     = 8,
+sendMess        = 9,
+
+waitRECStatus   = 11,
+pullDownOE      = 12,
+pullDownRD      = 13,
+checkMess       = 15,
+changeRECStatus = 16;
+
+reg [16:0] state/* synthesis syn_encoding = "safe, one-hot" */;
+reg [16:0] nextState/* synthesis syn_encoding = "safe, one-hot" */;
+
+always @(negedge USB_CLK)
+begin
+	if((OE == 1'b0) && (RD == 1'b0))
+	begin
+		dataToRead <= D_IN;
+	end
+end
+
+reg CHANGE_REC_USB;
+always @ (negedge ENA or posedge CHANGE_REC_USB)
+begin
+	if(!ENA)
+	begin
+		USB_REC <= 1'b0;
+	end
+	else
+	begin
+		USB_REC <= ~USB_REC;
+	end
+end
+
+always @ (posedge RST or posedge USB_CLK)
+begin
+	if(RST)
+	begin
+		state <= waitUSB;
+	end
+	else
+	begin
+		state <= nextState;
+	end
+end
+
+always @ (RST or state or RXF or TXE)
+begin
+	if(RST)
+	begin
+		OE <= 1'b1;
+		RD <= 1'b1;
+		WR <= 1'b1;
+		USB_REC_ENA <= 1'b0;
+		CHANGE_REC_USB <= 1'b0;
+		dataToWrite <= {8{1'bz}};
+		nextState <= waitUSB;
+	end
+	else
+	begin
+
+case (state)
+//==================
+waitUSB:
+begin
+	if(RXF)
+	begin
+		OE <= 1'b1;
+		RD <= 1'b1;
+		WR <= 1'b1;
+		USB_REC_ENA <= 1'b0;
+		CHANGE_REC_USB <= 1'b0;
+		dataToWrite <= {8{1'bz}};
+		nextState <= waitUSB;
+	end
+	else if (!RXF)
+	begin
+		OE <= 1'b1;
+		RD <= 1'b1;
+		WR <= 1'b1;
+		USB_REC_ENA <= 1'b0;
+		CHANGE_REC_USB <= 1'b0;
+		dataToWrite <= {8{1'bz}};
+		nextState <= pullDownOE1;
+	end
+	else
+	begin
+		OE <= 1'b1;
+		RD <= 1'b1;
+		WR <= 1'b1;
+		USB_REC_ENA <= 1'b0;
+		CHANGE_REC_USB <= 1'b0;
+		dataToWrite <= {8{1'bz}};
+		nextState <= waitUSB;
+	end
+end
+//==================
+pullDownOE1:
+begin
+	OE <= 1'b0;
+	RD <= 1'b1;
+	WR <= 1'b1;
+	USB_REC_ENA <= 1'b0;
+	CHANGE_REC_USB <= 1'b0;
+	dataToWrite <= {8{1'bz}};
+	nextState <= pullDownRD1;
+end
+//==================
+pullDownRD1:
+begin
+	OE <= 1'b0;
+	RD <= 1'b0;
+	WR <= 1'b1;
+	USB_REC_ENA <= 1'b0;
+	CHANGE_REC_USB <= 1'b0;
+	dataToWrite <= {8{1'bz}};
+	nextState <= checkMess1;
+end
+//==================
+checkMess1:
+begin
+	OE <= 1'b1;
+	RD <= 1'b1;
+	WR <= 1'b1;
+	USB_REC_ENA <= 1'b0;
+	CHANGE_REC_USB <= 1'b0;
+	dataToWrite <= {8{1'bz}};
+	if(dataToRead == requestByte)
+	begin
+		nextState <= waitTXE;
+	end
+	else if(dataToRead != requestByte)
+	begin
+		nextState <= waitTXE;
+	end
+	else
+	begin
+		nextState <= checkMess1;
+	end
+end
+//==================
+waitTXE:
+begin
+	OE <= 1'b1;
+	RD <= 1'b1;
+	WR <= 1'b1;
+	USB_REC_ENA <= 1'b0;
+	CHANGE_REC_USB <= 1'b0;
+	dataToWrite <= {8{1'bz}};
+	if(!TXE)
+	begin
+		nextState <= prepareMess;
+	end
+	else if(TXE)
+	begin
+		nextState <= waitTXE;
+	end
+	else
+	begin
+		nextState <= waitTXE;
+	end
+end
+//==================
+prepareMess:
+begin
+	OE <= 1'b1;
+	RD <= 1'b1;
+	WR <= 1'b1;
+	USB_REC_ENA <= 1'b0;
+	CHANGE_REC_USB <= 1'b0;
+	dataToWrite <= confirmByte;
+	nextState <= sendMess;
+end
+//==================
+sendMess:
+begin
+	OE <= 1'b1;
+	RD <= 1'b1;
+	WR <= 1'b0;
+	USB_REC_ENA <= 1'b0;
+	CHANGE_REC_USB <= 1'b0;
+	dataToWrite <= confirmByte;
+	nextState <= waitRECStatus;
+end
+//==================
+waitRECStatus:
+begin
+	if(RXF)
+	begin
+		OE <= 1'b1;
+		RD <= 1'b1;
+		WR <= 1'b1;
+		USB_REC_ENA <= 1'b1;
+		CHANGE_REC_USB <= 1'b0;
+		dataToWrite <= {8{1'bz}};
+		nextState <= waitRECStatus;
+	end
+	else if (!RXF)
+	begin
+		OE <= 1'b1;
+		RD <= 1'b1;
+		WR <= 1'b1;
+		USB_REC_ENA <= 1'b1;
+		CHANGE_REC_USB <= 1'b0;
+		dataToWrite <= {8{1'bz}};
+		nextState <= pullDownOE;
+	end
+	else
+	begin
+		OE <= 1'b1;
+		RD <= 1'b1;
+		WR <= 1'b1;
+		USB_REC_ENA <= 1'b1;
+		CHANGE_REC_USB <= 1'b0;
+		dataToWrite <= {8{1'bz}};
+		nextState <= waitRECStatus;
+	end
+end
+//==================
+pullDownOE:
+begin
+	OE <= 1'b0;
+	RD <= 1'b1;
+	WR <= 1'b1;
+	USB_REC_ENA <= 1'b1;
+	CHANGE_REC_USB <= 1'b0;
+	dataToWrite <= {8{1'bz}};
+	nextState <= pullDownRD;
+end
+//==================
+pullDownRD:
+begin
+	OE <= 1'b0;
+	RD <= 1'b0;
+	WR <= 1'b1;
+	USB_REC_ENA <= 1'b1;
+	CHANGE_REC_USB <= 1'b0;
+	dataToWrite <= {8{1'bz}};
+	nextState <= checkMess;
+end
+//==================
+checkMess:
+begin
+	OE <= 1'b1;
+	RD <= 1'b1;
+	WR <= 1'b1;
+	USB_REC_ENA <= 1'b1;
+	CHANGE_REC_USB <= 1'b0;
+	dataToWrite <= {8{1'bz}};
+	if(dataToRead == startRecByte)
+	begin
+		nextState <= changeRECStatus;
+	end
+	else if(dataToRead != requestByte)
+	begin
+		nextState <= waitRECStatus;
+	end
+	else
+	begin
+		nextState <= checkMess;
+	end
+end
+//==================
+changeRECStatus:
+begin
+	OE <= 1'b1;
+	RD <= 1'b1;
+	WR <= 1'b1;
+	USB_REC_ENA <= 1'b1;
+	CHANGE_REC_USB <= 1'b1;
+	dataToWrite <= {8{1'bz}};
+	nextState <= waitRECStatus;
+end
+//==================
+endcase
+
+	end
+end
+
+//============================
+
+localparam
+initMute               = 0,
+waitButPush            = 1,
+confirmButPush         = 2,
+waitButPull            = 3,
+confirmButPull         = 4,
+muteAfterButAction     = 5;
+
+
+reg [24:0] stateBUT/* synthesis syn_encoding = "safe, one-hot" */;
+reg [24:0] nextStateBUT/* synthesis syn_encoding = "safe, one-hot" */;
+
+
+reg fastBlink;
+reg slowBlink;
+reg on;
+reg off;
+
+`ifdef sim
+defparam muteCounterButStartStopControllerUnit1.Tm = 32'd5;
+`else
+defparam muteCounterButStartStopControllerUnit1.Tm = 32'h000FFFF;
+`endif
+
+reg ENA_M;
+wire COMPLT_M;
+
+muteCounter muteCounterButStartStopControllerUnit1(
+FAST_CLK,
+RST,
+ENA_M,
+COMPLT_M);
+
+`ifdef sim
+defparam muteCounterButStartStopControllerUnit2.Tm = 32'd15;
+`else
+defparam muteCounterButStartStopControllerUnit2.Tm = 32'h00FFFFFF;
+`endif
+
+reg ENA_M_BP;//button push
+wire COMPLT_M_BP;
+
+muteCounter muteCounterButStartStopControllerUnit2(
+FAST_CLK,
+RST,
+ENA_M_BP,
+COMPLT_M_BP);
+
+reg [22:0] counterSlowMode;
+reg [20:0] counterFastMode;
+
+always @ (negedge FAST_CLK)
+begin
+	if(ENA)
+	begin
+		counterFastMode <= counterFastMode + 21'd2;
+		counterSlowMode <= counterSlowMode + 23'd1;
+	end
+	else
+	begin
+		counterFastMode <= 21'd0;
+		counterSlowMode <= 23'd0;
+	end
+end
+
+always @ (posedge FAST_CLK)
+begin
+	on <= 1'b1;
+	off <= 1'b0;	
+end
+
+always @ (posedge FAST_CLK)
+begin
+	if(counterSlowMode < 23'd4194303)//1
+	begin
+		slowBlink <= 1'b0;
+	end
+	else 
+	begin
+		slowBlink <= 1'b1;
+	end
+end
+
+always @ (posedge FAST_CLK)
+begin
+	if(counterFastMode < 21'd1048575)//1
+	begin
+		fastBlink <= 1'b0;
+	end
+	else
+	begin
+		fastBlink <= 1'b1;
+	end
+	
+end
+
+always @ (negedge FAST_CLK)
+begin
+	if(MODE == 2'b11)
+	begin
+		LED <= off;
+	end
+	else if(MODE == 2'b00)
+	begin
+		LED <= on;
+	end
+	else if (MODE == 2'b01)
+	begin
+		//LED <= fastBlink;
+		LED <= slowBlink;
+	end
+	else if(MODE == 2'b10)
+	begin
+		//LED <= slowBlink;
+		LED <= fastBlink;
+	end
+	else
+	begin
+		LED <= LED;
+	end
+end
+
+reg CHANGE_REC_BUT;
+
+always @ (negedge ENA or posedge CHANGE_REC_BUT)
+begin
+	if(!ENA)
+	begin
+		BUT_REC <= 1'b0;
+	end
+	else
+	begin
+		BUT_REC <= ~BUT_REC;
+	end
+end
+
+always @ (posedge FAST_CLK)
+begin
+	if(RST)
+	begin
+		stateBUT <= initMute;
+	end
+	else
+	begin
+		stateBUT <= nextStateBUT; 
+	end
+end
+//============================
+always @ (stateBUT or RST or BUT or COMPLT_M or COMPLT_M_BP)
+begin
+	if(RST)
+	begin
+		CHANGE_REC_BUT <= 1'b0;	
+		ENA_M <= 1'b0;
+		ENA_M_BP <= 1'b0;
+			
+		nextStateBUT <= initMute;	
+	end
+	else
+	begin
+		case(stateBUT)
+//============================		
+initMute:
+begin
+
+if(!COMPLT_M)
+begin
+	CHANGE_REC_BUT <= 1'b0;	
+	ENA_M <= 1'b1;
+	ENA_M_BP <= 1'b0;
+	
+	nextStateBUT <= initMute;	
+end
+else if(COMPLT_M)
+begin
+	nextStateBUT <= waitButPush;
+end
+else
+begin
+	nextStateBUT <= initMute;
+end
+
+end
+//============================		
+waitButPush:
+begin
+
+if(BUT)
+begin
+	CHANGE_REC_BUT <= 1'b0;	
+	ENA_M <= 1'b0;
+	ENA_M_BP <= 1'b0;
+
+	nextStateBUT <= waitButPush;
+end
+else if(!BUT)
+begin	
+	nextStateBUT <= confirmButPush;
+end
+else
+begin
+	nextStateBUT <= waitButPush;
+end
+
+end
+//============================		
+confirmButPush:
+begin
+
+if(!COMPLT_M)
+begin
+	CHANGE_REC_BUT <= 1'b0;	
+	ENA_M <= 1'b1;
+	ENA_M_BP <= 1'b0;
+	
+	nextStateBUT <= confirmButPush;	
+end
+else if(COMPLT_M)
+begin
+	if(BUT)
+	begin
+		CHANGE_REC_BUT <= 1'b0;	
+		ENA_M <= 1'b1;
+		ENA_M_BP <= 1'b0;
+		
+		nextStateBUT <= waitButPush;
+	end
+	else if(!BUT)
+	begin	
+		nextStateBUT <= waitButPull;
+	end
+	else
+	begin
+		nextStateBUT <= confirmButPush;
+	end
+end
+else
+begin
+	nextStateBUT <= confirmButPush;
+end
+
+end
+//============================		
+waitButPull:
+begin
+
+if(!BUT)
+begin
+	CHANGE_REC_BUT <= 1'b1;	
+	ENA_M <= 1'b0;
+	ENA_M_BP <= 1'b0;
+		
+	nextStateBUT <= waitButPull;
+end
+else if(BUT)
+begin	
+	nextStateBUT <= confirmButPull;
+end
+else
+begin
+	nextStateBUT <= waitButPull;
+end
+
+end
+//============================		
+confirmButPull:
+begin
+
+if(!COMPLT_M)
+begin
+	CHANGE_REC_BUT <= 1'b0;	
+	ENA_M <= 1'b1;
+	ENA_M_BP <= 1'b0;
+
+	nextStateBUT <= confirmButPull;	
+end
+else if(COMPLT_M)
+begin
+	if(BUT)
+	begin
+		CHANGE_REC_BUT <= 1'b0;	
+		ENA_M <= 1'b1;
+		ENA_M_BP <= 1'b0;
+				
+		nextStateBUT <= muteAfterButAction;
+	end
+	else if(!BUT)
+	begin	
+		nextStateBUT <= waitButPull;
+	end
+	else
+	begin
+		nextStateBUT <= confirmButPull;
+	end
+end
+else
+begin
+	nextStateBUT <= confirmButPull;
+end
+
+end
+//============================
+muteAfterButAction:
+begin
+
+if(!COMPLT_M_BP)
+begin
+	CHANGE_REC_BUT <= 1'b0;	
+	ENA_M <= 1'b0;
+	ENA_M_BP <= 1'b1;
+	
+	nextStateBUT <= muteAfterButAction;	
+end
+else if(COMPLT_M_BP)
+begin
+	nextStateBUT <= waitButPush;
+end
+else
+begin
+	nextStateBUT <= muteAfterButAction;
+end
+
+end
+
+endcase
+end
+end
+
+endmodule

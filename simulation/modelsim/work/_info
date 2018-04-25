@@ -1,0 +1,1757 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\StoreDev\Altera\_Group\FIRBU\FIRBUp7\simulation\modelsim
+vacmdCounter
+Z1 !s100 ad4FLdkTO>CKo2m[OG`=m3
+Z2 I?Pdzj^=TTE>GoGcUmU[5h1
+Z3 Ve4OT:MSO^cJ20B2oOfLE@1
+Z4 dC:\Store\Altera\MLP-16\FIRBU_AM_USB\simulation\modelsim
+Z5 w1346168550
+Z6 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/acmdCounter.v
+Z7 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/acmdCounter.v
+L0 39
+Z8 OV;L;10.1b;51
+r1
+31
+Z9 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/acmdCounter.v|
+Z10 o-work work -O0
+Z11 nacmd@counter
+Z12 !s108 1365761530.341000
+Z13 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/acmdCounter.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vALTERA_DEVICE_FAMILIES
+Z14 !s100 6dZ4Ig28HOSe?AXRd`a6i0
+Z15 IOe6`bU^bC0502llOBU_EN0
+Z16 VQ9;YfM0O8T<kA:7iO^6?T3
+R4
+Z17 w1338559206
+Z18 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/altera_mf.v
+Z19 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/altera_mf.v
+Z20 L0 1344
+R8
+r1
+31
+Z21 !s108 1365761567.083000
+Z22 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllADC.v|
+Z23 !s90 -reportprogress|300|-work|work|-v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/altera_mf.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllADC.v|
+R10
+Z24 !s92 -work work -v C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/altera_mf.v -O0
+Z25 n@a@l@t@e@r@a_@d@e@v@i@c@e_@f@a@m@i@l@i@e@s
+!i10b 1
+!s85 0
+!s101 -O0
+vALTERA_MF_MEMORY_INITIALIZATION
+Z26 !s100 fiH<M75`EIoTo@J`H7bN]1
+Z27 IMbLl:EPEo<?X@W^_d_`EM3
+Z28 VdGgz5CJfH?XAb0VYP<f=T2
+R4
+R17
+R18
+R19
+L0 71
+R8
+r1
+31
+Z29 !s108 1365761551.960000
+Z30 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorStoreReading.v|
+Z31 !s90 -reportprogress|300|-work|work|-v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/altera_mf.v|-v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/220model.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorStoreReading.v|
+R10
+Z32 !s92 -work work -v C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/altera_mf.v -v C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/220model.v -O0
+Z33 n@a@l@t@e@r@a_@m@f_@m@e@m@o@r@y_@i@n@i@t@i@a@l@i@z@a@t@i@o@n
+!i10b 1
+!s85 0
+!s101 -O0
+valtpll
+Z34 !s100 IZMzi4U^gS@hVN3PSz7jE3
+Z35 IX;_aAJTF5Nh^ncR6KnoLW3
+Z36 V1]6ZE4bASeVHoDRB8`Pz_0
+R4
+R17
+R18
+R19
+Z37 L0 21579
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+valtsyncram
+Z38 !s100 EX@QlRZDnQSKQ8]V49LCM3
+Z39 ICD]<Pc8O2HfcDGlD4`aP@2
+Z40 VJ@co?`jI_VI2;nQzPkmC70
+R4
+R17
+R18
+R19
+Z41 L0 44160
+R8
+r1
+31
+R29
+R30
+R31
+R10
+R32
+!i10b 1
+!s85 0
+!s101 -O0
+varm_m_cntr
+Z42 !s100 3><SINek;f?Im<Ii4SiGH3
+Z43 I>^7^Sa>1=Vh5X:2M@nc4m0
+Z44 VnZ7bTfk5X@6QmGaNoIOHO1
+R4
+R17
+R18
+R19
+Z45 L0 6308
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+varm_n_cntr
+Z46 !s100 AR=c0IgZ?Qk7VOh]``UMN1
+Z47 IAXgS>:QoQVM609WH0Y9e01
+Z48 V@_zlT2DBKV43W5lIQ08O:0
+R4
+R17
+R18
+R19
+Z49 L0 6388
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+varm_scale_cntr
+Z50 !s100 D8]WJKeTfKo`Mm5HA5X;R2
+Z51 IhQMBnoZc_EQ2W]FAOB``a0
+Z52 VXREJKCNbUEi[38_3KRk5Y1
+R4
+R17
+R18
+R19
+Z53 L0 6470
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vblockCounter
+Z54 !s100 ?JhJe2^U:UkX?D66ISk1@3
+Z55 IePacaJ2KQHAS0cMC;WjiQ1
+Z56 VgS]VmYB38;nbIAzonU6US0
+R4
+Z57 w1334653154
+Z58 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/blockCounter.v
+Z59 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/blockCounter.v
+L0 39
+R8
+r1
+31
+Z60 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/blockCounter.v|
+R10
+Z61 nblock@counter
+Z62 !s108 1365761530.996000
+Z63 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/blockCounter.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vbutStartStopController
+Z64 IhHQm9W2hP5ZLi<0]_f4S50
+Z65 V=@mVWMnD868CJXGYgi_Ni2
+Z66 dC:\StoreDev\Altera\_Group\FIRBU\FIRBU_AM\simulation\modelsim
+Z67 w1349773649
+Z68 8C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/butStartStopController.v
+Z69 FC:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/butStartStopController.v
+L0 1
+Z70 OV;L;10.0d;49
+r1
+31
+Z71 !s102 -nocovercells
+Z72 o-work work -nocovercells -O0
+Z73 nbut@start@stop@controller
+Z74 !s100 l2[R;Gd`O5V7U`l5H9NKX1
+Z75 !s108 1350926793.501000
+Z76 !s107 C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/butStartStopController.v|
+Z77 !s90 -reportprogress|300|-work|work|-nocovercells|C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/butStartStopController.v|
+!s85 0
+!s101 -O0
+vcda_m_cntr
+Z78 !s100 A8HhQN`SNFih2:DZd3dWM1
+Z79 IokDBYPa@:n5amCOA9N=K^0
+Z80 V;Zbk3ONaD><RF`o<@o<ii0
+R4
+R17
+R18
+R19
+Z81 L0 14247
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vcda_n_cntr
+Z82 !s100 >f>bI5?jh;Lid^j>]Q[;c0
+Z83 I0kcBVSHoFB>@26G2@3[4O0
+Z84 VSZ:RS?[@mA;M4Im<[m?9>2
+R4
+R17
+R18
+R19
+Z85 L0 14328
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vcda_scale_cntr
+Z86 !s100 SC4f]=OBG]8ELV8EKlhE?2
+Z87 IPYzA153OZc^ki]MV0BOZ20
+Z88 VS<5Xi@4Ba>4H^82]e]BXQ0
+R4
+R17
+R18
+R19
+Z89 L0 14399
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vcmdRepeatCounter
+Z90 !s100 1=f`l0J`QT5M1f?;RR6TW3
+Z91 I<8RIz3EGT5c862f=YSK;j1
+Z92 V@M6KQ4ZRhhGi[;gc8<CSJ3
+R4
+Z93 w1336466839
+Z94 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/cmdRepeatCounter.v
+Z95 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/cmdRepeatCounter.v
+L0 39
+R8
+r1
+31
+Z96 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/cmdRepeatCounter.v|
+R10
+Z97 ncmd@repeat@counter
+Z98 !s108 1365761531.642000
+Z99 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/cmdRepeatCounter.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vcommandManager
+Z100 !s100 E[2LiZn9g:]2[<2]B>KCi3
+Z101 IO`c7<9_i889zT;Hab>hDT0
+Z102 VHQ5;K^jz:ClBildN:dPZO2
+R4
+Z103 w1364903186
+Z104 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/commandManager.v
+Z105 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/commandManager.v
+L0 7
+R8
+r1
+31
+Z106 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/commandManager.v|
+R10
+Z107 ncommand@manager
+Z108 !s108 1365761532.213000
+Z109 !s107 defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/commandManager.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vcycloneiiigl_post_divider
+Z110 !s100 DU8>m=c9HbVRM1>Rj_OHd0
+Z111 IH`<UFKLc9j?e9^ZmmfSWF1
+Z112 VE[DCIBKzdZ_5J1e=a>ciB3
+R4
+R17
+R18
+R19
+Z113 L0 18117
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vdataCRCStatus
+Z114 !s100 aQDRgL]9l?53=E@;]P;Yj0
+Z115 I==ng8lcNZdNfVHCV7mmiA2
+Z116 VW^n>hiTmC^hhRzGmoeMiW2
+R4
+Z117 w1334138692
+Z118 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataCRCStatus.v
+Z119 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataCRCStatus.v
+L0 3
+R8
+r1
+31
+Z120 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataCRCStatus.v|
+R10
+Z121 ndata@c@r@c@status
+Z122 !s108 1365761533.054000
+Z123 !s107 timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataCRCStatus.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vdataReader
+Z124 !s100 T3kBAWlk2iT3YEl6iSj[B0
+Z125 IL5PbF2>=__n>Tjl[WPRfF3
+Z126 Vj5MQ64]G9kVbC2WQk:_bM3
+R4
+Z127 w1340203241
+Z128 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataReader.v
+Z129 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataReader.v
+L0 1
+R8
+r1
+31
+Z130 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataReader.v|
+R10
+Z131 ndata@reader
+Z132 !s108 1365761534.091000
+Z133 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataReader.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vdataWriter
+Z134 !s100 c911[C5Uk3KVPc34BX_=B2
+Z135 IT0V:?6ILB_9ob1n?zJhI60
+Z136 VMnn_2:JcGGNM]LINfg?<D2
+R4
+Z137 w1364231709
+Z138 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataWriter.v
+Z139 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataWriter.v
+L0 4
+R8
+r1
+31
+Z140 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataWriter.v|
+R10
+Z141 ndata@writer
+Z142 !s108 1365761534.764000
+Z143 !s107 defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataWriter.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vdataWriterOnAir
+Z144 !s100 zl8zYo7E3cfo@m<EA8RQV1
+Z145 I^HJzTjb0iM>1TDbW48RJR3
+Z146 VdDn^^e2;7Ci=SMQERob>;2
+R4
+Z147 w1348838817
+Z148 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataWriterOnAir.v
+Z149 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataWriterOnAir.v
+L0 4
+R8
+r1
+31
+Z150 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataWriterOnAir.v|
+R10
+Z151 ndata@writer@on@air
+Z152 !s108 1365761535.239000
+Z153 !s107 defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/dataWriterOnAir.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vdffp
+Z154 !s100 YUKi17^YB@UTim=L_><JU2
+Z155 IJSOloZRnlH6Cf;UnK]Y3;3
+Z156 VheeUl3zRZ0fNAP7CaC4WR1
+R4
+R17
+R18
+R19
+Z157 L0 2086
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vdigiBuff
+Z158 !s100 YoA5GddODT=k@J4;OiNNl0
+Z159 I]`GEfMB9[GcFA>V3J>D>[2
+Z160 V3gKcTYeH:5CBieJGD4gXP2
+R4
+Z161 w1364489119
+Z162 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/digiBuff.v
+Z163 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/digiBuff.v
+L0 39
+R8
+r1
+31
+Z164 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/digiBuff.v|
+R10
+Z165 ndigi@buff
+Z166 !s108 1365761583.089000
+Z167 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/digiBuff.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vdigiBuffToSTWPump
+Z168 !s100 PQR02Q]^f4k]J8:SN>EKX3
+Z169 IneEb6Ra_Hc:dg6S>LGj0I3
+Z170 VV`VjH`MLe`Va]]ajnjP5V3
+R4
+Z171 w1364489327
+Z172 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/digiBuffToSTWPump.v
+Z173 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/digiBuffToSTWPump.v
+L0 4
+R8
+r1
+31
+Z174 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/digiBuffToSTWPump.v|
+R10
+Z175 ndigi@buff@to@s@t@w@pump
+Z176 !s108 1365761583.929000
+Z177 !s107 defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/digiBuffToSTWPump.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vengineController
+Z178 Ib`L;@_jHJR8KioYk>1IzU1
+Z179 VYEfQ8XATO0[c4:l:;?gCL3
+R66
+Z180 w1349773545
+Z181 8C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/engineController.v
+Z182 FC:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/engineController.v
+L0 3
+R70
+r1
+31
+R71
+R72
+Z183 nengine@controller
+Z184 !s100 U1]`VR;LF`OSMj9lSkFYh1
+Z185 !s108 1350926793.895000
+Z186 !s107 C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/engineController.v|
+Z187 !s90 -reportprogress|300|-work|work|-nocovercells|C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/engineController.v|
+!s85 0
+!s101 -O0
+vFATupdeterTest
+Z188 I9FZb]W^`JS07UNeDI[RiM2
+Z189 V4EAS6nW0LcUWnFc?bn<?Q1
+Z190 dC:\Store\Altera\MLP-16\FIRBU_AM\simulation\modelsim
+Z191 w1355153088
+Z192 8C:/Store/Altera/MLP-16/FIRBU_AM/simulation/modelsim/FATupdaterTest.v
+Z193 FC:/Store/Altera/MLP-16/FIRBU_AM/simulation/modelsim/FATupdaterTest.v
+L0 1
+R70
+r1
+31
+R71
+R72
+Z194 n@f@a@tupdeter@test
+Z195 !s90 -reportprogress|300|-work|work|-nocovercells|C:/Store/Altera/MLP-16/FIRBU_AM/simulation/modelsim/FATupdaterTest.v|
+Z196 !s100 7G]3_fl<G^7^cfUTV@Z[A1
+Z197 !s108 1355153096.394000
+Z198 !s107 C:/Store/Altera/MLP-16/FIRBU_AM/simulation/modelsim/FATupdaterTest.v|
+!s85 0
+!s101 -O0
+vfileSystemServer
+Z199 !s100 iE<ohfOo;RD;65AbgZSm<2
+Z200 Ia;VM=Z4JZLb@4iDni7hRK2
+Z201 V6dcg5ZNVmKM5nJzm;AZ`C1
+R4
+Z202 w1363011351
+Z203 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/fileSystemServer.v
+Z204 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/fileSystemServer.v
+L0 1
+R8
+r1
+31
+Z205 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/fileSystemServer.v|
+R10
+Z206 nfile@system@server
+Z207 !s108 1365761546.995000
+Z208 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/fileSystemServer.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vFIRBU_AM
+Z209 !s100 X]^S4T<G?on4ZA`ObVhoL0
+Z210 IZD5P_eTUKdSH`AnA7AJ760
+Z211 VVTmOmKB9i0@BQf_^HcHB50
+R4
+Z212 w1365166792
+Z213 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/FIRBU_AM.v
+Z214 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/FIRBU_AM.v
+L0 4
+R8
+r1
+31
+Z215 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/FIRBU_AM.v|
+R10
+Z216 n@f@i@r@b@u_@a@m
+Z217 !s108 1365761547.625000
+Z218 !s107 defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/FIRBU_AM.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vinputBusToSDDatBusPovider
+Z219 !s100 6QDd<1ld=95K]]GUZ1]k<0
+Z220 I7`9g0DFc?SQ^>=2>:@ZAL2
+Z221 V04J6g9na^>g=6TMAdPYj>0
+R4
+Z222 w1336737862
+Z223 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/inputBusToSDDatBusPovider.v
+Z224 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/inputBusToSDDatBusPovider.v
+L0 3
+R8
+r1
+31
+Z225 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/inputBusToSDDatBusPovider.v|
+R10
+Z226 ninput@bus@to@s@d@dat@bus@povider
+Z227 !s108 1365761535.800000
+Z228 !s107 timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/inputBusToSDDatBusPovider.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vlpm_counter
+Z229 I0M@bYXbSXR]LClP;eZ2^J0
+Z230 V6g_]FPKAI>Z@Q^W0l`B>g0
+R4
+Z231 w1338555606
+Z232 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/220model.v
+Z233 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/220model.v
+Z234 L0 3509
+R8
+r1
+31
+Z235 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/sectorToWriteAddrCounterOut.v|
+R10
+Z236 !s108 1362577023.986000
+Z237 !s90 -reportprogress|300|-work|work|-v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/220model.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/sectorToWriteAddrCounterOut.v|
+Z238 !s92 -work work -v C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/lib/220model.v -O0
+Z239 !s100 dQ4Jlz<W1OMzReDBkNR1c2
+!i10b 1
+!s85 0
+!s101 -O0
+vMF_cycloneiii_pll
+Z240 !s100 U;8d8Y:hb;10FOiel=OO42
+Z241 IZoRBgYOMA12Bca4nebNLn1
+Z242 V8SACR3<jj>]mCQFb;Fhcz1
+R4
+R17
+R18
+R19
+Z243 L0 14526
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+Z244 n@m@f_cycloneiii_pll
+!i10b 1
+!s85 0
+!s101 -O0
+vMF_cycloneiiigl_m_cntr
+Z245 !s100 =>7TS@B]IED<ghG9lZ_So0
+Z246 I4]@nWfUTn3oO_7aNH]KWX3
+Z247 V3m_Jz6C;W8>1i>E5DR]XP2
+R4
+R17
+R18
+R19
+Z248 L0 17855
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+Z249 n@m@f_cycloneiiigl_m_cntr
+!i10b 1
+!s85 0
+!s101 -O0
+vMF_cycloneiiigl_n_cntr
+Z250 !s100 d36KYld3dCnD_IcVe<`3o2
+Z251 ICc?k5c2SlzKZJW9iNfLc13
+Z252 VfUZ<Z;akRGDNQkBMOhdC51
+R4
+R17
+R18
+R19
+Z253 L0 17936
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+Z254 n@m@f_cycloneiiigl_n_cntr
+!i10b 1
+!s85 0
+!s101 -O0
+vMF_cycloneiiigl_pll
+Z255 !s100 ZC6fLHELLIn6Eb[QcYS=32
+Z256 I>Fc6aZV2EC?XkeN1UI:Q>3
+Z257 VX:XbK@6<Z8TFo`ZiKA`8b3
+R4
+R17
+R18
+R19
+Z258 L0 18206
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+Z259 n@m@f_cycloneiiigl_pll
+!i10b 1
+!s85 0
+!s101 -O0
+vMF_cycloneiiigl_scale_cntr
+Z260 !s100 Fl?IbhzUi<WmY0UIh109e1
+Z261 Iok?n1jD=_f8DP:KQQ?SXf2
+Z262 V9Q2fNP0aT7@gU`>cZ`B^[1
+R4
+R17
+R18
+R19
+Z263 L0 18007
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+Z264 n@m@f_cycloneiiigl_scale_cntr
+!i10b 1
+!s85 0
+!s101 -O0
+vMF_pll_reg
+Z265 !s100 59JfiU6cW[M2gU1KgI`G82
+Z266 IH^e`MfFB7GXbP2=]f<[Ac0
+Z267 VNCKUEDQ^OBUgncngA<V;H2
+R4
+R17
+R18
+R19
+Z268 L0 2443
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+Z269 n@m@f_pll_reg
+!i10b 1
+!s85 0
+!s101 -O0
+vMF_stratix_pll
+Z270 !s100 nakP5R>n:@bgbAzP13FV=1
+Z271 I6WV=nRdn8bR82T6jkM_cf1
+Z272 V<Q6_>0?hlOYD6Z>E5^II12
+R4
+R17
+R18
+R19
+Z273 L0 2502
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+Z274 n@m@f_stratix_pll
+!i10b 1
+!s85 0
+!s101 -O0
+vMF_stratixii_pll
+Z275 !s100 IJLn[220>ecmOgBVbZnz`3
+Z276 I8[DRbGhPzzz:3]d8OA^5]1
+Z277 V]ZTC;GJ]^ZXMZmG8?R3E32
+R4
+R17
+R18
+R19
+Z278 L0 6593
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+Z279 n@m@f_stratixii_pll
+!i10b 1
+!s85 0
+!s101 -O0
+vMF_stratixiii_pll
+Z280 !s100 BKQKW@>ikWSd8=bAOJz6B1
+Z281 INo=0WZVlDC7jh;@F6553o2
+Z282 VPJ`;F;KLMG`Rme6?O:>0a3
+R4
+R17
+R18
+R19
+Z283 L0 10424
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+Z284 n@m@f_stratixiii_pll
+!i10b 1
+!s85 0
+!s101 -O0
+vmovingAverage
+Z285 !s100 kG>EG<2OPGT@89F;>TloJ0
+Z286 IX9PUCk2cB5:4gR4BAjE[D3
+Z287 VMoIE4V0G>i9AC`DQdk:kX1
+R4
+Z288 w1365061967
+Z289 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/movingAverage.v
+Z290 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/movingAverage.v
+L0 1
+R8
+r1
+31
+Z291 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/movingAverage.v|
+R10
+Z292 nmoving@average
+Z293 !s108 1365761548.967000
+Z294 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/movingAverage.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vmovingAverageTest
+Z295 I1jmmYL7nF7186oBj^S?aM0
+Z296 VB07JIDT<ajoeoJ?CLY<ze0
+R4
+Z297 w1363790819
+Z298 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/movingEvarageTest.v
+Z299 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/movingEvarageTest.v
+L0 3
+R8
+r1
+31
+R10
+Z300 nmoving@average@test
+Z301 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/movingEvarageTest.v|
+Z302 !s100 PTnJ2zl8MM7;;HCj5O3b:0
+Z303 !s108 1363790831.807000
+Z304 !s107 timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/movingEvarageTest.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vmuteCounter
+Z305 !s100 L@HUb<h2N;>2dDO8P3nXN2
+Z306 Iao`:J2cPbC`m`o2A[UkV]1
+Z307 V:[mCRWchdAPBJoCcbFDm=1
+R4
+Z308 w1349107867
+Z309 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/muteCounter.v
+Z310 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/muteCounter.v
+L0 3
+R8
+r1
+31
+Z311 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/muteCounter.v|
+R10
+Z312 nmute@counter
+Z313 !s108 1365761536.611000
+Z314 !s107 timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/muteCounter.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vnumCounter
+Z315 !s100 2V4EH0jI7Bb2c48;Q6AHm0
+Z316 Inm`HZEzLl[6?d`UmV8iGZ3
+Z317 Vb;A0[>A7PCKLd1n=6Fm[P3
+R4
+Z318 w1348736286
+Z319 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/numCounter.v
+Z320 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/numCounter.v
+L0 1
+R8
+r1
+31
+Z321 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/numCounter.v|
+R10
+Z322 nnum@counter
+Z323 !s108 1365761549.607000
+Z324 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/numCounter.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vparallel_CRC7
+Z325 !s100 U1GUj>X^ai;R`a1hGJ]?E0
+Z326 IBEeW1z<=b:]=VOikhQ31U0
+Z327 V0]5=;j?ZFh4VXWJf4l0jT1
+R4
+Z328 w1336385313
+Z329 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallel_crc7.v
+Z330 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallel_crc7.v
+L0 17
+R8
+r1
+31
+Z331 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallel_crc7.v|
+R10
+Z332 nparallel_@c@r@c7
+Z333 !s108 1365761538.737000
+Z334 !s107 timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallel_crc7.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vparallelCmdToSerialConverter
+Z335 !s100 okzBo;liO]14E;DDGAfi?0
+Z336 ID<[<6z^KDM:[k>lQjI[?i2
+Z337 V3IYYgPd^7FY[fTPm:5@541
+R4
+Z338 w1339683420
+Z339 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallelCmdlToSerialConverter.v
+Z340 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallelCmdlToSerialConverter.v
+L0 3
+R8
+r1
+31
+Z341 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallelCmdlToSerialConverter.v|
+R10
+Z342 nparallel@cmd@to@serial@converter
+Z343 !s108 1365761540.127000
+Z344 !s107 timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallelCmdlToSerialConverter.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vparallelToWideBusDataWriter
+Z345 !s100 V^T73Ce_jgMc344K30In43
+Z346 ICOIVN2n<naD_EF?_eS>=e0
+Z347 V5z6F`_^]1Z=XUS01]RWaZ3
+R4
+Z348 w1343656179
+Z349 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallelToWideBusDataWriter.v
+Z350 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallelToWideBusDataWriter.v
+L0 3
+R8
+r1
+31
+Z351 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallelToWideBusDataWriter.v|
+R10
+Z352 nparallel@to@wide@bus@data@writer
+Z353 !s108 1365761541.012000
+Z354 !s107 timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/parallelToWideBusDataWriter.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vpathNumCounter
+Z355 IESbE:AA;[2b7?;cc3=QB40
+Z356 V?JAVAHzK^CW3NlF7M;i890
+R66
+Z357 w1350563507
+Z358 8C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/pathNumCounter.v
+Z359 FC:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/pathNumCounter.v
+L0 1
+R70
+r1
+31
+R71
+R72
+Z360 npath@num@counter
+Z361 !s100 8G3?nG@:<0NREY7;X]h2i3
+Z362 !s108 1350926795.114000
+Z363 !s107 C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/pathNumCounter.v|
+Z364 !s90 -reportprogress|300|-work|work|-nocovercells|C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/_peripheralController/pathNumCounter.v|
+!s85 0
+!s101 -O0
+vperipheralController
+Z365 !s100 A2cESNBgThQEmm[6TgCkl1
+Z366 IFlIdLA35mW1`]6IzO>K]f3
+Z367 VVLHQA:o]^k:`NMWMB_CQi3
+R4
+Z368 w1365166702
+Z369 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_peripheralController/peripheralController.v
+Z370 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_peripheralController/peripheralController.v
+L0 4
+R8
+r1
+31
+Z371 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_peripheralController/peripheralController.v|
+R10
+Z372 nperipheral@controller
+Z373 !s108 1365761561.939000
+Z374 !s107 defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_peripheralController/peripheralController.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vPeriphUSBTest
+Z375 I9eGlZhT3?4Gg=R[Gz;NB[3
+Z376 VH^;a2=QiUYaSD0h=X29H81
+R4
+Z377 w1363770505
+Z378 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/PeriphUSBTest.v
+Z379 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/PeriphUSBTest.v
+L0 4
+R8
+r1
+31
+R10
+Z380 n@periph@u@s@b@test
+Z381 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/PeriphUSBTest.v|
+Z382 !s100 ]_J9Z=K6K<O^UJMV13DZl3
+Z383 !s108 1363770659.225000
+Z384 !s107 defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/PeriphUSBTest.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vpll_iobuf
+Z385 !s100 <6_22^fajQ`GV@F0JbhLS0
+Z386 I@1BBdK9[Y3ZjAQKaWzZKU0
+Z387 VEGl7X@h1ghgJczPPMaRcj3
+R4
+R17
+R18
+R19
+Z388 L0 2119
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vpllADC
+Z389 !s100 @7YbOO?];Z`d1oNF61YDL0
+Z390 IYV>G6E5M65Fbd=Gm@0HQE0
+Z391 Vn@aUg;3ZHh@C6KFTQlnGN0
+R4
+Z392 w1365074868
+Z393 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllADC.v
+Z394 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/pllADC.v
+L0 39
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+Z395 npll@a@d@c
+!i10b 1
+!s85 0
+!s101 -O0
+vpllSdClocking
+Z396 !s100 5[5Je0mQiE26^MYWF[Bje1
+Z397 IPh[@:=e8JgM@2SRjF]0=:2
+Z398 V@?0>l5]WD92L9;kk10aUk3
+R4
+Z399 w1365160302
+Z400 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSdClocking.v
+Z401 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSdClocking.v
+L0 39
+R8
+r1
+31
+Z402 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSdClocking.v|
+R10
+Z403 npll@sd@clocking
+Z404 !s108 1365761550.175000
+Z405 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSdClocking.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vpllSdClocking_altpll
+Z406 INajd2^_]Q1`[hmY<z:TU03
+Z407 VfK2NY@13GIT0F>nLm;Q[50
+R4
+Z408 w1362067488
+Z409 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/db/pllsdclocking_altpll.v
+Z410 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/db/pllsdclocking_altpll.v
+L0 29
+R8
+r1
+31
+Z411 o-vlog01compat -work work -O0
+Z412 !s92 -vlog01compat -work work +incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/db -O0
+Z413 npll@sd@clocking_altpll
+Z414 !s100 0[7TQ=f5[NHaP5N2Y=aGC1
+Z415 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/db|C:/Store/Altera/MLP-16/FIRBU_AM_USB/db/pllsdclocking_altpll.v|
+Z416 !s108 1363705889.725000
+Z417 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/db/pllsdclocking_altpll.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vpllSlowFAT
+Z418 IZ:8X8kHSF]_JMU?1jek892
+Z419 VfK7gBlfoG>NTA:5Y=meBP2
+R4
+Z420 w1355759478
+Z421 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSlowFAT.v
+Z422 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSlowFAT.v
+L0 39
+R8
+r1
+31
+R10
+Z423 npll@slow@f@a@t
+Z424 !s100 zMK2WTzF<WmFaQd@@^S2T0
+Z425 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSlowFAT.v|
+Z426 !s108 1363600483.411000
+Z427 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/pllSlowFAT.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vpllSlowFAT_altpll
+Z428 Ima4;6WCM3YTJ@HX94oE8g2
+Z429 V4c4`Dmo[o0>iS89LZ[Z<o0
+R4
+Z430 w1362067489
+Z431 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/db/pllslowfat_altpll.v
+Z432 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/db/pllslowfat_altpll.v
+L0 29
+R8
+r1
+31
+R411
+R412
+Z433 npll@slow@f@a@t_altpll
+Z434 !s100 z[LH55NXblIdgo>n`7`]m3
+Z435 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Store/Altera/MLP-16/FIRBU_AM_USB/db|C:/Store/Altera/MLP-16/FIRBU_AM_USB/db/pllslowfat_altpll.v|
+Z436 !s108 1363705890.219000
+Z437 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/db/pllslowfat_altpll.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vregisters
+Z438 I7hUBeMamDO>5R8<PJ5<?61
+Z439 VOS]lgfMnNF`P@NmLj@EVW0
+R4
+Z440 w1338882119
+Z441 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/registers.v
+Z442 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/registers.v
+L0 39
+R8
+r1
+31
+R10
+Z443 !s100 H`l]B@YX]ORbh3fS`@C@z0
+Z444 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/registers.v|
+Z445 !s108 1363600483.910000
+Z446 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/registers.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsd_crc_16
+Z447 !s100 6Tb1N`4^dmZO8]3_7M8^52
+Z448 Id@?X30W9Hm=em3an:X0d41
+Z449 V74=iboi:H4J;38K1FlZ=A1
+R4
+Z450 w1287142520
+Z451 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sd_crc_16.v
+Z452 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sd_crc_16.v
+L0 8
+R8
+r1
+31
+Z453 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sd_crc_16.v|
+R10
+Z454 !s108 1365761563.943000
+Z455 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sd_crc_16.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsd_crc_7
+Z456 !s100 <G`h:P7`n3DZH^JQdCVg?2
+Z457 Imm2gX;k=LJACgnZW53lE;0
+Z458 V6Z7]GJ0EWIMbdEX`8^LMW1
+R4
+R450
+Z459 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sd_crc_7.v
+Z460 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sd_crc_7.v
+L0 1
+R8
+r1
+31
+Z461 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sd_crc_7.v|
+R10
+Z462 !s108 1365761563.282000
+Z463 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sd_crc_7.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsdInitTest
+Z464 IUFn[7V9;jZiQ2Hn:afd0S3
+Z465 Vzf_hM`d5Yo;XlAMM^iPIA0
+R4
+Z466 w1362566448
+Z467 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sdInitTest.v
+Z468 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sdInitTest.v
+L0 3
+R8
+r1
+31
+R10
+Z469 nsd@init@test
+Z470 !s100 :k5CKYD4O[QkLB1o0XjLK1
+Z471 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sdInitTest.v|
+Z472 !s108 1362577876.167000
+Z473 !s107 timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sdInitTest.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsdModel
+Z474 !s100 Jl7FePoP>=QfBV5VV_7eM1
+Z475 INm5L32XW:K1R42e^TlM]^2
+Z476 V16kP0ID<>Q`3H3LaBS5z?1
+R4
+Z477 w1346161620
+Z478 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sdModel.v
+Z479 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sdModel.v
+L0 20
+R8
+r1
+31
+Z480 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sdModel.v|
+R10
+Z481 nsd@model
+Z482 !s108 1365761565.300000
+Z483 !s107 sd_defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sdModel.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsdTest
+Z484 !s100 i9`ojP8085leV99<51]ag0
+Z485 IN[fRY9=NK=SIh0DI:cBMH0
+Z486 VL]]M57;RI4GLN3mj^YMQm3
+R4
+Z487 w1365166893
+Z488 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sdTest.v
+Z489 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sdTest.v
+L0 3
+R8
+r1
+31
+Z490 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sdTest.v|
+R10
+Z491 nsd@test
+Z492 !s108 1365761565.998000
+Z493 !s107 timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/simulation/modelsim/sdTest.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsectorBytePicker
+Z494 !s100 k[:E=HHbTlFDK?aSz5hz;0
+Z495 I5YHeTO0Gg^h>X=IF_hYZ?1
+Z496 VWgn1aG>;E30hWebcDckKS3
+R4
+Z497 w1343210613
+Z498 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorBytePicker.v
+Z499 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorBytePicker.v
+L0 4
+R8
+r1
+31
+Z500 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorBytePicker.v|
+R10
+Z501 nsector@byte@picker
+Z502 !s108 1365761550.946000
+Z503 !s107 defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorBytePicker.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsectorStoreReading
+Z504 !s100 9iH[6bLWQjR[:LgB<3ERV3
+Z505 I;LaJQJWc_=ckYISeQfnYo0
+Z506 ViW7Vn_4QF9jIezCNKOYN31
+R4
+Z507 w1343036728
+Z508 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorStoreReading.v
+Z509 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorStoreReading.v
+L0 39
+R8
+r1
+31
+R29
+R30
+R31
+R10
+R32
+Z510 nsector@store@reading
+!i10b 1
+!s85 0
+!s101 -O0
+vsectorToWrite
+Z511 !s100 dR;AYSEag8Y60a2hdRWC70
+Z512 IfgJA3W5OKV<3nzXde@H8A3
+Z513 V^YA@dk54KJ1GGIdNl9d;d1
+R4
+Z514 w1364230129
+Z515 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWrite.v
+Z516 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWrite.v
+L0 39
+R8
+r1
+31
+Z517 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWrite.v|
+R10
+Z518 nsector@to@write
+Z519 !s108 1365761554.738000
+Z520 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWrite.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsectorToWriteAddrCounterOut
+Z521 !s100 f5DT_M94z@^1M^XF1UlJ80
+Z522 Im2fJL;XzeR1RWQ0zEQaKC1
+Z523 V?M@eSVm1bZF4Z13DhTD0T3
+R4
+Z524 w1343742335
+Z525 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/sectorToWriteAddrCounterOut.v
+Z526 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/sectorToWriteAddrCounterOut.v
+L0 39
+R8
+r1
+31
+Z527 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/sectorToWriteAddrCounterOut.v|
+R10
+Z528 nsector@to@write@addr@counter@out
+Z529 !s108 1365761542.597000
+R235
+!i10b 1
+!s85 0
+!s101 -O0
+vsectorToWriteConstructor
+Z530 !s100 7lMbiUGh;^JW2C5bjEJdR1
+Z531 IMLQ]:E>jI?N66b2h7gTSW0
+Z532 Va7^4:GL_VaTRhMb]IdS@]1
+R4
+Z533 w1348748276
+Z534 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteConstructor.v
+Z535 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteConstructor.v
+L0 4
+R8
+r1
+31
+Z536 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteConstructor.v|
+R10
+Z537 nsector@to@write@constructor
+Z538 !s108 1365761555.653000
+Z539 !s107 defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteConstructor.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsectorToWriteDigitizer
+Z540 !s100 SgA=aWOX=6KHdkhI<`<mX3
+Z541 I^mCjJUaz<a^IFaHa[^;iW2
+Z542 V6z;S]j`EB8Z^l;OhlLi?O1
+R4
+Z543 w1365434039
+Z544 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteDigitizer.v
+Z545 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteDigitizer.v
+L0 4
+R8
+r1
+31
+Z546 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteDigitizer.v|
+R10
+Z547 nsector@to@write@digitizer
+Z548 !s108 1365761557.036000
+Z549 !s107 defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteDigitizer.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsectorToWriteDigitizerAddrCounter
+Z550 IOjUPfYTU@eb90ef;_`R[e1
+Z551 VXnN0kVSz9gcbL@9gkdHgn2
+R66
+Z552 w1349177872
+Z553 8C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteDigitizerAddrCounter.v
+Z554 FC:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteDigitizerAddrCounter.v
+L0 39
+R70
+r1
+31
+R71
+R72
+Z555 nsector@to@write@digitizer@addr@counter
+Z556 !s100 d?cD=U80P@W974^:P:ZYQ1
+Z557 !s90 -reportprogress|300|-work|work|-nocovercells|C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteDigitizerAddrCounter.v|
+Z558 !s108 1350297192.910000
+Z559 !s107 C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteDigitizerAddrCounter.v|
+!s85 0
+!s101 -O0
+vsectorToWriteFATconstructor
+Z560 !s100 J5AH`HG6TE9]^F68S^gAL0
+Z561 IB5^I?CNCOR7W1^NBKR5::0
+Z562 VEO2a4RPJ0M8;_Y6D`Z6931
+R4
+Z563 w1364470648
+Z564 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATconstructor.v
+Z565 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATconstructor.v
+L0 4
+R8
+r1
+31
+Z566 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATconstructor.v|
+R10
+Z567 nsector@to@write@f@a@tconstructor
+Z568 !s108 1365761557.637000
+Z569 !s107 defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATconstructor.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsectorToWriteFATconstructorAddrCounter
+Z570 I;<[`<QiLBk_74=a1MWj?U0
+Z571 VE]3mjI3KKi[JoJ`8IcPAQ0
+R66
+Z572 w1349717140
+Z573 8C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteFATconstructorAddrCounter.v
+Z574 FC:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteFATconstructorAddrCounter.v
+L0 1
+R70
+r1
+31
+R71
+R72
+Z575 nsector@to@write@f@a@tconstructor@addr@counter
+Z576 !s100 S>@QE:ZBfMQHK1OVgk_C43
+Z577 !s90 -reportprogress|300|-work|work|-nocovercells|C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteFATconstructorAddrCounter.v|
+Z578 !s108 1350297195.166000
+Z579 !s107 C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteFATconstructorAddrCounter.v|
+!s85 0
+!s101 -O0
+vsectorToWriteFATpage
+Z580 !s100 BNSL]^VK0o;3So:Rn`1Z]3
+Z581 I3E0TC46:PW<:gQo`PM:M:2
+Z582 V0b_<h@abP_cEZ1M3lblaM2
+R4
+Z583 w1364230095
+Z584 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATpage.v
+Z585 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATpage.v
+L0 39
+R8
+r1
+31
+Z586 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATpage.v|
+R10
+Z587 nsector@to@write@f@a@tpage
+Z588 !s108 1365761558.676000
+Z589 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATpage.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsectorToWriteFATserviceCounter
+Z590 Idjm2[5Qnd<j09NI6PeM<O2
+Z591 VdT0g^aIhb3bBLdX:9inPb1
+R66
+Z592 w1347272278
+Z593 8C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteFATserviceCounter.v
+Z594 FC:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteFATserviceCounter.v
+L0 39
+R70
+r1
+31
+R71
+R72
+Z595 nsector@to@write@f@a@tservice@counter
+Z596 !s100 o;5I6Yg5DlHm;bP_Sn?;11
+Z597 !s90 -reportprogress|300|-work|work|-nocovercells|C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteFATserviceCounter.v|
+Z598 !s108 1350297193.265000
+Z599 !s107 C:/StoreDev/Altera/_Group/FIRBU/FIRBU_AM/sectorToWriteFATserviceCounter.v|
+!s85 0
+!s101 -O0
+vsectorToWriteFATupdater
+Z600 !s100 LL<cEk4VlEWYg[SnEeL1O1
+Z601 IdQ<0GU`Y0MGO9bV8aKUdM1
+Z602 VhOgnc;kFX;1`<HXk43fk>2
+R4
+Z603 w1364473324
+Z604 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATupdater.v
+Z605 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATupdater.v
+L0 4
+R8
+r1
+31
+Z606 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATupdater.v|
+R10
+Z607 nsector@to@write@f@a@tupdater
+Z608 !s108 1365761559.958000
+Z609 !s107 defines.v|timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWriteFATupdater.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vsectorToWritePumper
+Z610 !s100 4VVR4OS;I<3eQH9PI^AaM0
+Z611 IZG]5_fYRa_S@EJCA3Rb[Y3
+Z612 VVAJGEA[8bne:Y9L2;cG153
+R4
+Z613 w1364489427
+Z614 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWritePumper.v
+Z615 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWritePumper.v
+L0 1
+R8
+r1
+31
+Z616 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWritePumper.v|
+R10
+Z617 nsector@to@write@pumper
+Z618 !s108 1365761584.477000
+Z619 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/sectorToWritePumper.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vserial_CRC16
+Z620 !s100 l30zVETXgn[0[6KXb4BCK2
+Z621 I5FcfRgEcY7MDSX^zl0_JU0
+Z622 VNEP[6V`iYzco;e?FPdKC<3
+R4
+Z623 w1336739577
+Z624 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serial_crc16.v
+Z625 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serial_crc16.v
+L0 11
+R8
+r1
+31
+Z626 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serial_crc16.v|
+R10
+Z627 nserial_@c@r@c16
+Z628 !s108 1365761544.346000
+Z629 !s107 timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serial_crc16.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vserial_CRC7
+Z630 !s100 jM18]GQ^b35g<`Xmnf:ZX3
+Z631 ITNbDIPAUoDnB@n?giN7>z0
+Z632 VGEiAk7e7b8n4Gnee<8GIM3
+R4
+Z633 w1336385432
+Z634 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serial_crc7.v
+Z635 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serial_crc7.v
+L0 11
+R8
+r1
+31
+Z636 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serial_crc7.v|
+R10
+Z637 nserial_@c@r@c7
+Z638 !s108 1365761543.698000
+Z639 !s107 timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serial_crc7.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vserialRespToParallelConverter
+Z640 !s100 U80DfDZDO?`J1fQzCDmTY3
+Z641 I`MYR_G<J@TjhZe<U`JRO51
+Z642 VMX02TIV_HJmYzfTBRERA73
+R4
+Z643 w1362577211
+Z644 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serialRespToParallelConverter.v
+Z645 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serialRespToParallelConverter.v
+L0 3
+R8
+r1
+31
+Z646 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serialRespToParallelConverter.v|
+R10
+Z647 nserial@resp@to@parallel@converter
+Z648 !s108 1365761545.289000
+Z649 !s107 timescale.v|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/serialRespToParallelConverter.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vstx_m_cntr
+Z650 !s100 S1oZU2<i?kTIe]do0;m3`0
+Z651 InP?kD?:9YW@aSjh;<P_>m3
+Z652 V:[2:D[_10ghn[bgc=CD302
+R4
+R17
+R18
+R19
+Z653 L0 2145
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vstx_n_cntr
+Z654 !s100 JAEQjIHzOnIA[_BC_ENhm3
+Z655 IADZk`c6VmeQ:2>dmLlW2j0
+Z656 V4CiQB5Uz?;=OULO:MD>Eo1
+R4
+R17
+R18
+R19
+Z657 L0 2223
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vstx_scale_cntr
+Z658 !s100 Yf5[FM5Pj?NgoNG<hXaJ<1
+Z659 I6^Oi8NZk;YX[ZYdmzgRIK1
+Z660 VG8KIUm2mDHoX1DjR8TDdJ1
+R4
+R17
+R18
+R19
+Z661 L0 2308
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vtransfrMultBlockWriteCounter
+Z662 !s100 :;Vd1kaPCEJRLkfbF@g1g3
+Z663 IbUBi[3E0k3MWDk6@0;^U_3
+Z664 V=`BDo5Hz@hIj_B>fY<z[z1
+R4
+Z665 w1349800128
+Z666 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/transfrMultBlockWriteCounter.v
+Z667 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/transfrMultBlockWriteCounter.v
+L0 1
+R8
+r1
+31
+Z668 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/transfrMultBlockWriteCounter.v|
+R10
+Z669 ntransfr@mult@block@write@counter
+Z670 !s108 1365761546.233000
+Z671 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/_sdCardFiles/transfrMultBlockWriteCounter.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vttn_m_cntr
+Z672 !s100 b_F8CeDe51R7W^1i2CU0Z1
+Z673 Ioi]K7C_@5baZUfMEn2do12
+Z674 ViEB@`bJmQ[jz8=2kGYhDn3
+R4
+R17
+R18
+R19
+Z675 L0 10145
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vttn_n_cntr
+Z676 !s100 i?5bNC3<:Wz=FAC59KUVK1
+Z677 I^IdA4eOmUi]m]GB7;eJzk3
+Z678 VWh8a]<5HCnf>2<AJGoZ2`0
+R4
+R17
+R18
+R19
+Z679 L0 10226
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vttn_scale_cntr
+Z680 !s100 6TVZWLH6az65jmcdmh;3^2
+Z681 IKPFAg27NY]Qo0z5ge[fVa3
+Z682 VXPfdhMTXDmY9JYEiBjd?Q2
+R4
+R17
+R18
+R19
+Z683 L0 10297
+R8
+r1
+31
+R21
+R22
+R23
+R10
+R24
+!i10b 1
+!s85 0
+!s101 -O0
+vUSBBuff
+Z684 !s100 SzN5DU?cOSz?D2MMH_XaO2
+Z685 IN`foe?@b=4>]i8QVPJX2?2
+Z686 V?QThQMO4P1j]86[QX3BFh0
+R4
+Z687 w1365061947
+Z688 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBBuff.v
+Z689 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/USBBuff.v
+L0 39
+R8
+r1
+31
+Z690 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBBuff.v|
+R10
+Z691 n@u@s@b@buff
+Z692 !s108 1365761587.492000
+Z693 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBBuff.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vUSBdigitizer
+Z694 !s100 6[`Vj;^TUBZX]BDSeLeiL2
+Z695 IESnV@^H[bR9X[Q>;60m6T1
+Z696 VWWgQW@a^T1I3@fg@78RC;2
+R4
+Z697 w1365434393
+Z698 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBdigitizer.v
+Z699 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/USBdigitizer.v
+L0 1
+R8
+r1
+31
+Z700 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBdigitizer.v|
+R10
+Z701 n@u@s@bdigitizer
+!i10b 1
+!s85 0
+Z702 !s108 1365761588.228000
+Z703 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBdigitizer.v|
+!s101 -O0
+vUSBTransceiver
+Z704 !s100 =eb3]<dA[ZFoo:1B4R6VD1
+Z705 I?FI@N@>=0dhzaRaGOA;I52
+Z706 VZlEmh7eP7LCKNHnAjYP6D3
+R4
+Z707 w1365065891
+Z708 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBTransceiver.v
+Z709 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/USBTransceiver.v
+L0 1
+R8
+r1
+31
+Z710 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBTransceiver.v|
+R10
+Z711 n@u@s@b@transceiver
+Z712 !s108 1365761581.928000
+Z713 !s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBTransceiver.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vUSBTransceiverPumper
+!i10b 1
+!s100 bkEg8EP?a^CE083Be4QR41
+IjOKMJ7YE]izdP<W=?9@Fk3
+Z714 VgbL6j^0QKb]nmTKnJEO=61
+R4
+w1365761411
+Z715 8C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBTransceiverPumper.v
+Z716 FC:/Store/Altera/MLP-16/FIRBU_AM_USB/USBTransceiverPumper.v
+L0 1
+R8
+r1
+!s85 0
+31
+!s108 1365761589.016000
+!s107 C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBTransceiverPumper.v|
+Z717 !s90 -reportprogress|300|-work|work|C:/Store/Altera/MLP-16/FIRBU_AM_USB/USBTransceiverPumper.v|
+!s101 -O0
+R10
+Z718 n@u@s@b@transceiver@pumper

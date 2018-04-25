@@ -1,0 +1,24 @@
+module globalAddrWriteCounter(
+ENA,
+CLK,
+ADDR_BEGIN,
+ADDR);
+
+input wire ENA, CLK;
+input wire [31:0] ADDR_BEGIN;
+output reg [31:0] ADDR;
+
+
+always @ (posedge ENA or posedge CLK)
+begin
+	if(ENA)
+	begin
+		ADDR <= ADDR + 10'b10_0000_0000;
+	end
+	else
+	begin
+		ADDR <= ADDR_BEGIN;
+	end
+end
+
+endmodule

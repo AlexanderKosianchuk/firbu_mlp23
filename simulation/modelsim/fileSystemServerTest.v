@@ -1,0 +1,56 @@
+module fileSystemServerTest();
+  
+reg RST, CLK, ENA;
+wire COMPLT;
+
+localparam firstFileBegining = 32'd16448;
+localparam FAT1begin = 32'd14462;
+localparam FAT2begin = 32'd15423;
+localparam blocksInClust = 32'd64;
+
+reg [31:0] STOP_BLOCK_NUM;
+
+initial
+begin
+  RST = 1'b1;
+  ENA = 1'b0;
+  #100 RST = 1'b0;
+  STOP_BLOCK_NUM = 32'd3020;
+  #100 ENA = 1'b1;
+  #100 ENA = 1'b0;
+  STOP_BLOCK_NUM = 32'd7184;
+  #100 ENA = 1'b1;
+  
+end
+
+initial
+begin
+  CLK = 1'b0;
+  forever # 1 CLK = ~CLK;  
+end
+
+wire [31:0] FILE_SIZE_BYTES;
+wire [31:0] ADDR_TO_RESUME_WRITTING_FILE;
+wire [31:0] FIRST_CLUST_TO_UPDATE_FAT;
+wire [31:0] CLUST_NUM_EOF;
+wire [31:0] ADDR_TO_UPDATE_FAT1;
+wire [31:0] ADDR_TO_UPDATE_FAT2;
+  
+fileSystemServer fileSystemServerUnit(
+CLK,
+ENA,
+RST,
+COMPLT,
+firstFileBegining,
+FAT1begin,
+FAT2begin,
+blocksInClust,
+STOP_BLOCK_NUM,
+FILE_SIZE_BYTES,
+FIRST_CLUST_TO_UPDATE_FAT,
+CLUST_NUM_EOF,
+ADDR_TO_UPDATE_FAT1,
+ADDR_TO_UPDATE_FAT2,
+ADDR_TO_RESUME_WRITTING_FILE);
+
+endmodule
